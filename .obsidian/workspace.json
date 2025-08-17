@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "07dd27df4fd56592",
+    "type": "split",
+    "children": [
+      {
+        "id": "76615f5fa6969dbf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "00fdedad49c94c9a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SimuTrador/repository-migration-plan.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "repository-migration-plan"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2ae2cb40a474272f",
+    "type": "split",
+    "children": [
+      {
+        "id": "1c7306cf2dd6e03e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b327c7794f6897e6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "ec5b69721f9bd1cf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ad13fbc0aa2010fd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "c4171fde6ac15e71",
+    "type": "split",
+    "children": [
+      {
+        "id": "c64bdd608d043277",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7a33a4f2cd90bcd0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "SimuTrador/repository-migration-plan.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for repository-migration-plan"
+            }
+          },
+          {
+            "id": "4f21a5cee5bca7cc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "SimuTrador/repository-migration-plan.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from repository-migration-plan"
+            }
+          },
+          {
+            "id": "43ec158a6b1c54e2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "3de8c7aca6e7ea7f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "SimuTrador/repository-migration-plan.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of repository-migration-plan"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "00fdedad49c94c9a",
+  "lastOpenFiles": [
+    "SimuTrador/main.md",
+    "SimuTrador/repository-migration-plan.md",
+    "main.pdf",
+    "SimuTrador/ohlcv_manager.md",
+    "SimuTrador/ws_api_v2.md",
+    "SimuTrador/API/nightly update.md",
+    "SimuTrador/API/data analysis.md",
+    "SimuTrador",
+    "simutrade_obsidian_mermaid.md",
+    "simutrade_ws_api.md",
+    "simutrade_ws_api_guide.md",
+    "Unconfirmed 127577.crdownload",
+    "simutrade_ws_models_sample.py",
+    "simulation_engine_protocol.md",
+    "simulation_engine_protocol_2.md",
+    "simutrade_sequence_diagram.png",
+    "simutrade_sequence_proper.png",
+    "Unconfirmed 86476.crdownload",
+    "Unconfirmed 370862.crdownload",
+    "simutrade_ws_models_enterprise.py",
+    "Unconfirmed 903562.crdownload",
+    "Unconfirmed 845538.crdownload",
+    "API/on demand trading data update.md",
+    "backtester_roadmap.md",
+    "API/manual trading data update.md",
+    "SimuTrador/API"
+  ]
+}
