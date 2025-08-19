@@ -267,8 +267,44 @@ The SimuTrador repository migration has been **completed successfully**, achievi
 
 The project is now positioned for future growth with a solid foundation for the simulation server and additional components.
 
+## Post-Migration Enhancements
+
+### ✅ Phase 5: Utilities Migration (August 19, 2025)
+
+**What was accomplished**:
+
+- **Timeframe Utilities Migration**: Moved `timeframe_utils.py` from simutrador-data-manager to simutrador-core
+
+  - Functions: `get_timeframe_minutes()`, `get_pandas_frequency()`, `validate_timeframe_conversion()`, `get_supported_timeframes()`, `get_resampling_rules()`
+  - Now available for reuse in simulator and other components
+
+- **Logging Utilities Migration**: Created standardized logging utilities in simutrador-core
+
+  - Functions: `setup_logger()`, `get_default_logger()`, `configure_third_party_loggers()`
+  - Provides consistent logging configuration across all components
+
+- **Package Integration**: Updated simutrador-data-manager to use utilities from simutrador-core
+  - Updated imports in `data_resampling_service.py`
+  - Configured local development dependency for simutrador-core
+  - Removed duplicate utility files from data-manager
+
+**Technical Validation**:
+
+- ✅ All integration tests passing (22 tests)
+- ✅ Utilities successfully imported from simutrador-core
+- ✅ No functionality regression in data-manager
+- ✅ Clean separation of concerns maintained
+
+**Benefits for Simulator Development**:
+
+- Timeframe utilities ready for reuse in trading simulation
+- Standardized logging configuration available
+- Consistent data processing patterns across components
+- Reduced code duplication and improved maintainability
+
 ---
 
 **Migration Completed**: August 17, 2025
+**Utilities Migration Completed**: August 19, 2025
 **Status**: ✅ **SUCCESS**
 **Next Phase**: Simulation Server Development
