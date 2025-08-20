@@ -4,8 +4,8 @@
 
 **SimuTrador** is a comprehensive trading simulation platform that combines robust historical data management with high-fidelity order execution simulation. The platform consists of two integrated systems:
 
-1. **OHLCV Data Manager** - A sophisticated data pipeline for fetching, storing, and processing historical market data
-2. **WebSocket Simulation Engine** - A real-time trading simulator that executes orders against historical data with realistic market conditions
+1.  **OHLCV Data Manager** - A sophisticated data pipeline for fetching, storing, and processing historical market data
+2.  **WebSocket Simulation Engine** - A real-time trading simulator that executes orders against historical data with realistic market conditions
 
 Together, these systems provide developers and quantitative traders with a complete solution for strategy development, backtesting, and validation.
 
@@ -17,6 +17,40 @@ SimuTrador is built on the principle of **privacy-respecting realistic simulatio
 - **Test with realistic execution** - Includes slippage, latency, and commissions for accurate results
 - **Use your own data** - Client manages market data access while server validates execution
 - **Scale from research to production** - Same logic works for backtesting and live trading
+
+## 🧩 Multi-Repository Structure (Mono → Multi Repo)
+
+SimuTrador is organized as a set of focused repositories that work together in a single VS Code workspace.
+
+Project workspace layout:
+
+```
+simutrador/ (local workspace folder)
+├── simutrador-core/              # Shared Python models & utilities (Open Source - MIT)
+├── simutrador-data-manager/      # OHLCV data pipeline and APIs (Open Source - MIT)
+├── simutrador-docs/              # Documentation vault (Open Source - MIT)
+├── simutrador-client/            # Python client SDK for the WebSocket API (Open Source - MIT)
+└── simutrador-simulation-server/ # Simulation engine (Private)
+```
+
+Repository links:
+
+- Core library: https://github.com/simutrador/simutrador-core
+- Data manager: https://github.com/simutrador/simutrador-data-manager
+- Documentation: https://github.com/simutrador/simutrador-docs
+- Client SDK: https://github.com/simutrador/simutrador-client
+- Simulation server (private): https://github.com/simutrador/simutrador-simulation-server
+
+Open the multi-repo workspace in VS Code:
+
+```
+code simutrador.code-workspace
+```
+
+Notes:
+
+- simutrador-core is versioned and consumed by other repos. During development, some repos pull it from TestPyPI until the final PyPI release.
+- Each repo uses uv for dependency management, strict type checking with Pyright, Ruff for linting, and pre-push hooks for quality gates.
 
 ## 🏗️ System Architecture
 
@@ -144,15 +178,17 @@ SimuTrador offers flexible pricing tiers to accommodate different user needs:
 - 🧩 **SDK Development** - Python client library
 - **Local server for Stock Trading** - Simulator to support personal strategies
 - **Realistic market conditions Fidelity Level 1** - Support realistic market conditions with slippage and spreads, without advanced concepts such as partial fills.
-- 📊 **Baktesting Reports Fidelity Level 1**- Generate useful reports with some important metrics but not advanced analytics
-- **Compare Real Strategy results with IBKR paper Trading** - Validate the SaaS by comparing live trading results of any given strategy with the simulation results 
+- 📊 **Baktesting Reports Fidelity Level 1**\- Generate useful reports with some important metrics but not advanced analytics
+- **Compare Real Strategy results with IBKR paper Trading** - Validate the SaaS by comparing live trading results of any given strategy with the simulation results
 
 ### Phase 2 - March 2026 \[Go Live\] 💪
+
 - 🤖 **Rate Limits and Subscriptions** - Implement basic rate limits for free and paid plan, stick only to two plans for simplicity
 - 🌐 **SaaS Platform** - Basic Hosted solution with user management goes Live
 - 📱 **Dashboard Interface** - Web-based monitoring and control panel
 
 ### Phase 3- June 2026
+
 - 📈 **Live Trading Bridge** - Seamless transition from simulation to live trading
 - Support multiple data providers
 - Support multiple broker integration conditions for slippage and spreads
@@ -191,28 +227,28 @@ Client Strategy → Order Generation → Server Validation → Execution Simulat
 
 ## 🔧 Getting Started
 
-### 1. Data Setup
+### 1\. Data Setup
 
 First, configure your data sources and begin collecting historical data:
 
-```bash
+```
 # Start the OHLCV Manager
 curl -X POST http://localhost:8002/nightly-update/start \
   -H "Content-Type: application/json" \
   -d '{"symbols": ["AAPL", "GOOGL", "MSFT"]}'
 ```
 
-### 2. Authentication
+### 2\. Authentication
 
 Obtain your API credentials and exchange for a JWT token:
 
-```bash
+```
 # Get JWT token
 curl -X POST https://api.simutrador.com/auth/token \
   -H "X-API-Key: sk_live_your_api_key_here"
 ```
 
-### 3. Simulation Setup
+### 3\. Simulation Setup
 
 Connect to the WebSocket API and create your first simulation:
 
@@ -236,7 +272,7 @@ ws.send(
 );
 ```
 
-### 4. Strategy Implementation
+### 4\. Strategy Implementation
 
 Implement your trading logic with full privacy:
 
@@ -304,8 +340,8 @@ SimuTrador is built with the developer community in mind:
 
 ## OHLCV Data Manager
 
-![[ohlcv_manager]]
+!\[\[ohlcv_manager\]\]
 
 ## WebSocket Simulation API
 
-![[ws_api_v2]]
+!\[\[ws_api_v2\]\]
