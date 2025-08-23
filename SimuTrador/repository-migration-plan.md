@@ -174,7 +174,7 @@ simutrador/ (organized project folder)
 
 **🚀 Simulation Server Development**:
 
-- Create `simutrador-simulation-server` repository
+- Create `simutrador-server` repository
 - Extract WebSocket server and execution engine
 - Implement real-time trading simulation capabilities
 
@@ -191,7 +191,7 @@ SimuTrador Ecosystem (Complete)
 ├── simutrador-core/              # ✅ Shared library (Open Source - MIT)
 ├── simutrador-data-manager/      # ✅ Data collection (Open Source - MIT)
 ├── simutrador-docs/              # ✅ Documentation (Open Source - MIT)
-├── simutrador-simulation-server/ # 🔄 Trading engine (Proprietary)
+├── simutrador-server/            # 🔄 Trading engine (Proprietary)
 ├── simutrador-client-sdk/        # 📋 Client libraries (Open Source - MIT)
 └── simutrador-platform/          # 📋 Orchestration (Private)
 ```

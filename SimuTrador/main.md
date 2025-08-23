@@ -30,7 +30,7 @@ simutrador/ (local workspace folder)
 ├── simutrador-data-manager/      # OHLCV data pipeline and APIs (Open Source - MIT)
 ├── simutrador-docs/              # Documentation vault (Open Source - MIT)
 ├── simutrador-client/            # Python client SDK for the WebSocket API (Open Source - MIT)
-└── simutrador-simulation-server/ # Simulation engine (Private)
+└── simutrador-server/            # Simulation engine (Private)
 ```
 
 Repository links:
@@ -39,7 +39,7 @@ Repository links:
 - Data manager: https://github.com/simutrador/simutrador-data-manager
 - Documentation: https://github.com/simutrador/simutrador-docs
 - Client SDK: https://github.com/simutrador/simutrador-client
-- Simulation server (private): https://github.com/simutrador/simutrador-simulation-server
+- Simulation server (private): https://github.com/simutrador/simutrador-server
 
 Open the multi-repo workspace in VS Code:
 

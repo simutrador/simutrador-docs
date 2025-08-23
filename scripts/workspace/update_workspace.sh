@@ -41,20 +41,20 @@ CORE_DIR="${WORKSPACE_ROOT}/simutrador-core"
 DM_DIR="${WORKSPACE_ROOT}/simutrador-data-manager"
 DOCS_DIR="${WORKSPACE_ROOT}/simutrador-docs"
 CLIENT_DIR="${WORKSPACE_ROOT}/simutrador-client"
-SERVER_DIR="${WORKSPACE_ROOT}/simutrador-simulation-server"
+SERVER_DIR="${WORKSPACE_ROOT}/simutrador-server"
 
 if [[ "$USE_SSH" == true ]]; then
   REMOTE_CORE="git@github.com:simutrador/simutrador-core.git"
   REMOTE_DM="git@github.com:simutrador/simutrador-data-manager.git"
   REMOTE_DOCS="git@github.com:simutrador/simutrador-docs.git"
   REMOTE_CLIENT="git@github.com:simutrador/simutrador-client.git"
-  REMOTE_SERVER="git@github.com:simutrador/simutrador-simulation-server.git"
+  REMOTE_SERVER="git@github.com:simutrador/simutrador-server.git"
 else
   REMOTE_CORE="https://github.com/simutrador/simutrador-core.git"
   REMOTE_DM="https://github.com/simutrador/simutrador-data-manager.git"
   REMOTE_DOCS="https://github.com/simutrador/simutrador-docs.git"
   REMOTE_CLIENT="https://github.com/simutrador/simutrador-client.git"
-  REMOTE_SERVER="https://github.com/simutrador/simutrador-simulation-server.git"
+  REMOTE_SERVER="https://github.com/simutrador/simutrador-server.git"
 fi
 
 maybe_clone() {
@@ -90,7 +90,7 @@ append_workspace_folder() {
     # Create or overwrite workspace file
     local folders='    { "name": "simutrador-core", "path": "simutrador-core" },\n    { "name": "simutrador-data-manager", "path": "simutrador-data-manager" },\n    { "name": "simutrador-docs", "path": "simutrador-docs" },\n    { "name": "simutrador-client", "path": "simutrador-client" }'
     if [[ -d "$SERVER_DIR" ]]; then
-      folders+="\n    ,{ \"name\": \"simutrador-simulation-server\", \"path\": \"simutrador-simulation-server\" }"
+      folders+="\n    ,{ \"name\": \"simutrador-server\", \"path\": \"simutrador-server\" }"
     fi
     local json="{\n  \"folders\": [\n${folders}\n  ]\n}"
     if [[ "$DRY_RUN" == true ]]; then
@@ -130,7 +130,7 @@ append_workspace_folder "simutrador-data-manager" "simutrador-data-manager"
 append_workspace_folder "simutrador-docs" "simutrador-docs"
 append_workspace_folder "simutrador-client" "simutrador-client"
 if [[ -d "$SERVER_DIR" ]]; then
-  append_workspace_folder "simutrador-simulation-server" "simutrador-simulation-server"
+  append_workspace_folder "simutrador-server" "simutrador-server"
 fi
 
 echo "Done. Open workspace with: code \"$WORKSPACE_FILE\""
