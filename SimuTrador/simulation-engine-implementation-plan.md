@@ -29,11 +29,11 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 ### **Development Principles**
 
-1. **Incremental Development**: Each feature implemented in 20-minute development chunks
-2. **Test-Driven Development**: Write tests before implementation
-3. **Dual-Side Implementation**: Server and client developed in parallel
-4. **CLI Integration**: Every feature accessible via command-line interface
-5. **Integration Testing**: End-to-end tests for each complete workflow
+1.  **Incremental Development**: Each feature implemented in 20-minute development chunks
+2.  **Test-Driven Development**: Write tests before implementation
+3.  **Dual-Side Implementation**: Server and client developed in parallel
+4.  **CLI Integration**: Every feature accessible via command-line interface
+5.  **Integration Testing**: End-to-end tests for each complete workflow
 
 ### **Quality Gates**
 
@@ -50,17 +50,17 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Server Tasks**
 
-1. **JWT Token Service**: Implement token generation and validation
-2. **REST Auth Endpoint**: Create `/auth/token` endpoint for API key exchange
-3. **WebSocket Authentication**: Add JWT validation to WebSocket connections
-4. **Connection Management**: Implement connection limits and timeouts
+1.  **JWT Token Service**: Implement token generation and validation
+2.  **REST Auth Endpoint**: Create `/auth/token` endpoint for API key exchange
+3.  **WebSocket Authentication**: Add JWT validation to WebSocket connections
+4.  **Connection Management**: Implement connection limits and timeouts
 
 #### **Client Tasks**
 
-5. **Authentication Client**: Add JWT token exchange to client SDK
-6. **WebSocket Connection**: Implement authenticated WebSocket connection
-7. **CLI Auth Commands**: Add authentication commands to CLI
-8. **Integration Tests**: Test complete authentication flow
+1.  **Authentication Client**: Add JWT token exchange to client SDK
+2.  **WebSocket Connection**: Implement authenticated WebSocket connection
+3.  **CLI Auth Commands**: Add authentication commands to CLI
+4.  **Integration Tests**: Test complete authentication flow
 
 ### **Phase 2: Session Management** (Estimated: 6-8 tasks)
 
@@ -68,15 +68,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Server Tasks**
 
-9. **Session Storage**: Implement in-memory session management
-10. **Market Data Validation**: Validate symbols and date ranges
-11. **Session Creation Handler**: Process `create_session` messages
+1.  **Session Storage**: Implement in-memory session management
+2.  **Market Data Validation**: Validate symbols and date ranges
+3.  **Session Creation Handler**: Process `create_session` messages
 
 #### **Client Tasks**
 
-12. **Session Client**: Add session creation to client SDK
-13. **CLI Session Commands**: Add session management to CLI
-14. **Integration Tests**: Test session creation and validation
+1.  **Session Client**: Add session creation to client SDK
+2.  **CLI Session Commands**: Add session management to CLI
+3.  **Integration Tests**: Test session creation and validation
 
 ### **Phase 3: Basic Simulation Engine** (Estimated: 10-12 tasks)
 
@@ -84,15 +84,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Server Tasks**
 
-15. **Tick Generator**: Create time-based tick generation
-16. **Flow Control**: Implement tick acknowledgment system
-17. **Simulation State**: Track simulation progress and state
+1.  **Tick Generator**: Create time-based tick generation
+2.  **Flow Control**: Implement tick acknowledgment system
+3.  **Simulation State**: Track simulation progress and state
 
 #### **Client Tasks**
 
-18. **Tick Handler**: Process tick messages and send acknowledgments
-19. **CLI Simulation Commands**: Add simulation control to CLI
-20. **Integration Tests**: Test basic simulation flow
+1.  **Tick Handler**: Process tick messages and send acknowledgments
+2.  **CLI Simulation Commands**: Add simulation control to CLI
+3.  **Integration Tests**: Test basic simulation flow
 
 ### **Phase 4: Order Management** (Estimated: 8-10 tasks)
 
@@ -100,15 +100,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Server Tasks**
 
-21. **Order Validation**: Validate order parameters and constraints
-22. **Order Storage**: Manage pending and executed orders
-23. **Batch Processing**: Handle order batch messages
+1.  **Order Validation**: Validate order parameters and constraints
+2.  **Order Storage**: Manage pending and executed orders
+3.  **Batch Processing**: Handle order batch messages
 
 #### **Client Tasks**
 
-24. **Order Client**: Add order submission to client SDK
-25. **CLI Order Commands**: Add order management to CLI
-26. **Integration Tests**: Test order submission and validation
+1.  **Order Client**: Add order submission to client SDK
+2.  **CLI Order Commands**: Add order management to CLI
+3.  **Integration Tests**: Test order submission and validation
 
 ### **Phase 5: Execution Engine** (Estimated: 12-15 tasks)
 
@@ -116,16 +116,16 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Server Tasks**
 
-27. **Market Data Loader**: Load historical OHLCV data for simulation
-28. **Fill Engine**: Implement realistic order fills with slippage
-29. **Commission Calculator**: Apply commission and fee calculations
-30. **Execution Reports**: Generate detailed execution reports
+1.  **Market Data Loader**: Load historical OHLCV data for simulation
+2.  **Fill Engine**: Implement realistic order fills with slippage
+3.  **Commission Calculator**: Apply commission and fee calculations
+4.  **Execution Reports**: Generate detailed execution reports
 
 #### **Client Tasks**
 
-31. **Execution Handler**: Process execution reports
-32. **CLI Execution Commands**: Add execution monitoring to CLI
-33. **Integration Tests**: Test order execution and fills
+1.  **Execution Handler**: Process execution reports
+2.  **CLI Execution Commands**: Add execution monitoring to CLI
+3.  **Integration Tests**: Test order execution and fills
 
 ### **Phase 6: Portfolio Management** (Estimated: 8-10 tasks)
 
@@ -133,15 +133,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Server Tasks**
 
-34. **Position Tracking**: Maintain current positions and cash balance
-35. **Account Snapshots**: Generate real-time account updates
-36. **Performance Metrics**: Calculate PnL, drawdown, and ratios
+1.  **Position Tracking**: Maintain current positions and cash balance
+2.  **Account Snapshots**: Generate real-time account updates
+3.  **Performance Metrics**: Calculate PnL, drawdown, and ratios
 
 #### **Client Tasks**
 
-37. **Portfolio Client**: Handle account snapshot updates
-38. **CLI Portfolio Commands**: Add portfolio monitoring to CLI
-39. **Integration Tests**: Test portfolio tracking and metrics
+1.  **Portfolio Client**: Handle account snapshot updates
+2.  **CLI Portfolio Commands**: Add portfolio monitoring to CLI
+3.  **Integration Tests**: Test portfolio tracking and metrics
 
 ### **Phase 7: Advanced Features** (Estimated: 10-12 tasks)
 
@@ -149,16 +149,16 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Server Tasks**
 
-40. **Simulation Control**: Pause, resume, and query simulation state
-41. **Session Recovery**: Handle disconnection and reconnection
-42. **Rate Limiting**: Implement user plan-based limits
+1.  **Simulation Control**: Pause, resume, and query simulation state
+2.  **Session Recovery**: Handle disconnection and reconnection
+3.  **Rate Limiting**: Implement user plan-based limits
 
 #### **Client Tasks**
 
-43. **Interactive Control**: Add simulation control to client SDK
-44. **Reconnection Logic**: Implement automatic reconnection
-45. **CLI Advanced Commands**: Add advanced control features
-46. **Integration Tests**: Test interactive features and recovery
+1.  **Interactive Control**: Add simulation control to client SDK
+2.  **Reconnection Logic**: Implement automatic reconnection
+3.  **CLI Advanced Commands**: Add advanced control features
+4.  **Integration Tests**: Test interactive features and recovery
 
 ### **Phase 8: Production Readiness** (Estimated: 6-8 tasks)
 
@@ -166,15 +166,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Server Tasks**
 
-47. **Connection Monitoring**: Implement connection warnings and cleanup
-48. **Performance Optimization**: Optimize for concurrent sessions
-49. **Logging and Monitoring**: Add comprehensive logging
+1.  **Connection Monitoring**: Implement connection warnings and cleanup
+2.  **Performance Optimization**: Optimize for concurrent sessions
+3.  **Logging and Monitoring**: Add comprehensive logging
 
 #### **Client Tasks**
 
-50. **Error Handling**: Implement robust error handling
-51. **CLI Documentation**: Complete CLI help and examples
-52. **End-to-End Tests**: Comprehensive integration test suite
+1.  **Error Handling**: Implement robust error handling
+2.  **CLI Documentation**: Complete CLI help and examples
+3.  **End-to-End Tests**: Comprehensive integration test suite
 
 ## 🔧 **Detailed Task Breakdown**
 
@@ -182,8 +182,8 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 #### **Task 1: JWT Token Service (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Create JWT token generation and validation service
+**Estimated Time**: 20 minutes  
+**Description**: Create JWT token generation and validation service  
 **Deliverables**:
 
 - `JWTService` class with token generation and validation
@@ -193,15 +193,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/services/auth/jwt_service.py`
-2. Implement `generate_token()` and `validate_token()` methods
-3. Add JWT secret key configuration
-4. Write unit tests in `tests/unit/test_jwt_service.py`
+1.  Create `src/simutrador_server/services/auth/jwt_service.py`
+2.  Implement `generate_token()` and `validate_token()` methods
+3.  Add JWT secret key configuration
+4.  Write unit tests in `tests/unit/test_jwt_service.py`
 
 #### **Task 2: REST Auth Endpoint (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Implement `/auth/token` REST endpoint for API key exchange
+**Estimated Time**: 20 minutes  
+**Description**: Implement `/auth/token` REST endpoint for API key exchange  
 **Deliverables**:
 
 - REST endpoint accepting API key in header
@@ -211,15 +211,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/api/auth.py`
-2. Implement `POST /auth/token` endpoint
-3. Add API key validation logic
-4. Write integration tests in `tests/integration/test_auth_api.py`
+1.  Create `src/simutrador_server/api/auth.py`
+2.  Implement `POST /auth/token` endpoint
+3.  Add API key validation logic
+4.  Write integration tests in `tests/integration/test_auth_api.py`
 
 #### **Task 3: WebSocket Authentication (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Add JWT validation to WebSocket connections
+**Estimated Time**: 20 minutes  
+**Description**: Add JWT validation to WebSocket connections  
 **Deliverables**:
 
 - WebSocket connection with JWT token validation
@@ -229,15 +229,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Update WebSocket handler in `src/simutrador_server/websocket/connection.py`
-2. Add JWT token extraction from query parameters
-3. Implement connection rejection for invalid tokens
-4. Write WebSocket authentication tests
+1.  Update WebSocket handler in `src/simutrador_server/websocket/connection.py`
+2.  Add JWT token extraction from query parameters
+3.  Implement connection rejection for invalid tokens
+4.  Write WebSocket authentication tests
 
 #### **Task 4: Connection Management (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Implement connection limits and timeout handling
+**Estimated Time**: 20 minutes  
+**Description**: Implement connection limits and timeout handling  
 **Deliverables**:
 
 - Connection limit enforcement by user plan
@@ -247,15 +247,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/services/connection_manager.py`
-2. Implement connection tracking and limits
-3. Add timeout monitoring with background tasks
-4. Write connection management tests
+1.  Create `src/simutrador_server/services/connection_manager.py`
+2.  Implement connection tracking and limits
+3.  Add timeout monitoring with background tasks
+4.  Write connection management tests
 
 #### **Task 5: Authentication Client (Client)**
 
-**Estimated Time**: 20 minutes
-**Description**: Add JWT token exchange to client SDK
+**Estimated Time**: 20 minutes  
+**Description**: Add JWT token exchange to client SDK  
 **Deliverables**:
 
 - `AuthClient` class for token exchange
@@ -265,15 +265,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_client/auth.py`
-2. Implement token exchange with REST API
-3. Add token storage and refresh logic
-4. Write client authentication tests
+1.  Create `src/simutrador_client/auth.py`
+2.  Implement token exchange with REST API
+3.  Add token storage and refresh logic
+4.  Write client authentication tests
 
 #### **Task 6: WebSocket Connection (Client)**
 
-**Estimated Time**: 20 minutes
-**Description**: Implement authenticated WebSocket connection
+**Estimated Time**: 20 minutes  
+**Description**: Implement authenticated WebSocket connection  
 **Deliverables**:
 
 - Authenticated WebSocket connection class
@@ -283,15 +283,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Update `src/simutrador_client/websocket.py`
-2. Add JWT token to WebSocket connection URL
-3. Implement connection error handling
-4. Write WebSocket connection tests
+1.  Update `src/simutrador_client/websocket.py`
+2.  Add JWT token to WebSocket connection URL
+3.  Implement connection error handling
+4.  Write WebSocket connection tests
 
 #### **Task 7: CLI Auth Commands (Client)**
 
-**Estimated Time**: 20 minutes
-**Description**: Add authentication commands to CLI
+**Estimated Time**: 20 minutes  
+**Description**: Add authentication commands to CLI  
 **Deliverables**:
 
 - `simutrador-client auth login` command
@@ -301,15 +301,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Update `src/simutrador_client/cli.py`
-2. Add authentication subcommands
-3. Implement API key configuration
-4. Write CLI authentication tests
+1.  Update `src/simutrador_client/cli.py`
+2.  Add authentication subcommands
+3.  Implement API key configuration
+4.  Write CLI authentication tests
 
 #### **Task 8: Integration Tests (Authentication)**
 
-**Estimated Time**: 20 minutes
-**Description**: Test complete authentication flow end-to-end
+**Estimated Time**: 20 minutes  
+**Description**: Test complete authentication flow end-to-end  
 **Deliverables**:
 
 - End-to-end authentication test
@@ -319,17 +319,17 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `tests/integration/test_auth_flow.py`
-2. Test complete authentication workflow
-3. Test error scenarios and edge cases
-4. Document authentication flow
+1.  Create `tests/integration/test_auth_flow.py`
+2.  Test complete authentication workflow
+3.  Test error scenarios and edge cases
+4.  Document authentication flow
 
 ### **Phase 2 Tasks (Session Management)**
 
 #### **Task 9: Session Storage (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Implement in-memory session management
+**Estimated Time**: 20 minutes  
+**Description**: Implement in-memory session management  
 **Deliverables**:
 
 - `SessionManager` class for session storage
@@ -339,15 +339,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/services/session_manager.py`
-2. Implement session CRUD operations
-3. Add session state enumeration
-4. Write session storage tests
+1.  Create `src/simutrador_server/services/session_manager.py`
+2.  Implement session CRUD operations
+3.  Add session state enumeration
+4.  Write session storage tests
 
 #### **Task 10: Market Data Validation (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Validate symbols and date ranges against available data
+**Estimated Time**: 20 minutes  
+**Description**: Validate symbols and date ranges against available data  
 **Deliverables**:
 
 - `MarketDataValidator` class
@@ -357,15 +357,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/services/market_data_validator.py`
-2. Implement symbol and date validation
-3. Add data provider availability checks
-4. Write validation tests
+1.  Create `src/simutrador_server/services/market_data_validator.py`
+2.  Implement symbol and date validation
+3.  Add data provider availability checks
+4.  Write validation tests
 
 #### **Task 11: Session Creation Handler (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Process `create_session` WebSocket messages
+**Estimated Time**: 20 minutes  
+**Description**: Process `create_session` WebSocket messages  
 **Deliverables**:
 
 - WebSocket message handler for session creation
@@ -375,15 +375,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/websocket/handlers/session_handler.py`
-2. Implement `create_session` message processing
-3. Add session validation and error handling
-4. Write session handler tests
+1.  Create `src/simutrador_server/websocket/handlers/session_handler.py`
+2.  Implement `create_session` message processing
+3.  Add session validation and error handling
+4.  Write session handler tests
 
 #### **Task 12: Session Client (Client)**
 
-**Estimated Time**: 20 minutes
-**Description**: Add session creation to client SDK
+**Estimated Time**: 20 minutes  
+**Description**: Add session creation to client SDK  
 **Deliverables**:
 
 - `SessionClient` class for session management
@@ -393,15 +393,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_client/session.py`
-2. Implement session creation methods
-3. Add session state management
-4. Write client session tests
+1.  Create `src/simutrador_client/session.py`
+2.  Implement session creation methods
+3.  Add session state management
+4.  Write client session tests
 
 #### **Task 13: CLI Session Commands (Client)**
 
-**Estimated Time**: 20 minutes
-**Description**: Add session management to CLI
+**Estimated Time**: 20 minutes  
+**Description**: Add session management to CLI  
 **Deliverables**:
 
 - `simutrador-client session create` command
@@ -411,15 +411,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Update `src/simutrador_client/cli.py` with session commands
-2. Add session creation and status commands
-3. Implement session configuration options
-4. Write CLI session tests
+1.  Update `src/simutrador_client/cli.py` with session commands
+2.  Add session creation and status commands
+3.  Implement session configuration options
+4.  Write CLI session tests
 
 #### **Task 14: Integration Tests (Session Management)**
 
-**Estimated Time**: 20 minutes
-**Description**: Test session creation and validation end-to-end
+**Estimated Time**: 20 minutes  
+**Description**: Test session creation and validation end-to-end  
 **Deliverables**:
 
 - End-to-end session creation test
@@ -429,17 +429,17 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `tests/integration/test_session_flow.py`
-2. Test complete session creation workflow
-3. Test validation errors and edge cases
-4. Document session management flow
+1.  Create `tests/integration/test_session_flow.py`
+2.  Test complete session creation workflow
+3.  Test validation errors and edge cases
+4.  Document session management flow
 
 ### **Phase 3 Tasks (Basic Simulation Engine)**
 
 #### **Task 15: Tick Generator (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Create time-based tick generation system
+**Estimated Time**: 20 minutes  
+**Description**: Create time-based tick generation system  
 **Deliverables**:
 
 - `TickGenerator` class for time progression
@@ -449,15 +449,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/services/tick_generator.py`
-2. Implement time-based tick generation
-3. Add market session filtering
-4. Write tick generation tests
+1.  Create `src/simutrador_server/services/tick_generator.py`
+2.  Implement time-based tick generation
+3.  Add market session filtering
+4.  Write tick generation tests
 
 #### **Task 16: Flow Control (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Implement tick acknowledgment system
+**Estimated Time**: 20 minutes  
+**Description**: Implement tick acknowledgment system  
 **Deliverables**:
 
 - Flow control mechanism for tick processing
@@ -467,15 +467,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/services/flow_controller.py`
-2. Implement tick acknowledgment system
-3. Add backpressure and queue management
-4. Write flow control tests
+1.  Create `src/simutrador_server/services/flow_controller.py`
+2.  Implement tick acknowledgment system
+3.  Add backpressure and queue management
+4.  Write flow control tests
 
 #### **Task 17: Simulation State (Server)**
 
-**Estimated Time**: 20 minutes
-**Description**: Track simulation progress and state
+**Estimated Time**: 20 minutes  
+**Description**: Track simulation progress and state  
 **Deliverables**:
 
 - `SimulationState` class for state management
@@ -485,15 +485,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_server/services/simulation_state.py`
-2. Implement state tracking and persistence
-3. Add progress metrics calculation
-4. Write simulation state tests
+1.  Create `src/simutrador_server/services/simulation_state.py`
+2.  Implement state tracking and persistence
+3.  Add progress metrics calculation
+4.  Write simulation state tests
 
 #### **Task 18: Tick Handler (Client)**
 
-**Estimated Time**: 20 minutes
-**Description**: Process tick messages and send acknowledgments
+**Estimated Time**: 20 minutes  
+**Description**: Process tick messages and send acknowledgments  
 **Deliverables**:
 
 - `TickHandler` class for tick processing
@@ -503,15 +503,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `src/simutrador_client/tick_handler.py`
-2. Implement tick message processing
-3. Add automatic acknowledgment logic
-4. Write client tick tests
+1.  Create `src/simutrador_client/tick_handler.py`
+2.  Implement tick message processing
+3.  Add automatic acknowledgment logic
+4.  Write client tick tests
 
 #### **Task 19: CLI Simulation Commands (Client)**
 
-**Estimated Time**: 20 minutes
-**Description**: Add simulation control to CLI
+**Estimated Time**: 20 minutes  
+**Description**: Add simulation control to CLI  
 **Deliverables**:
 
 - `simutrador-client simulate start` command
@@ -521,15 +521,15 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Update `src/simutrador_client/cli.py` with simulation commands
-2. Add simulation start and control commands
-3. Implement real-time status monitoring
-4. Write CLI simulation tests
+1.  Update `src/simutrador_client/cli.py` with simulation commands
+2.  Add simulation start and control commands
+3.  Implement real-time status monitoring
+4.  Write CLI simulation tests
 
 #### **Task 20: Integration Tests (Basic Simulation)**
 
-**Estimated Time**: 20 minutes
-**Description**: Test basic simulation flow end-to-end
+**Estimated Time**: 20 minutes  
+**Description**: Test basic simulation flow end-to-end  
 **Deliverables**:
 
 - End-to-end simulation test
@@ -539,28 +539,28 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 **Implementation Steps**:
 
-1. Create `tests/integration/test_simulation_flow.py`
-2. Test complete simulation workflow
-3. Test flow control and backpressure
-4. Document basic simulation flow
+1.  Create `tests/integration/test_simulation_flow.py`
+2.  Test complete simulation workflow
+3.  Test flow control and backpressure
+4.  Document basic simulation flow
 
 ## 🚀 **Execution Guidelines**
 
 ### **Development Workflow**
 
-1. **Start with Tests**: Write failing tests before implementation
-2. **Implement Incrementally**: Focus on one task at a time
-3. **Validate Continuously**: Run tests after each change
-4. **Document Progress**: Update task status and document learnings
+1.  **Start with Tests**: Write failing tests before implementation
+2.  **Implement Incrementally**: Focus on one task at a time
+3.  **Validate Continuously**: Run tests after each change
+4.  **Document Progress**: Update task status and document learnings
 
 ### **Quality Checklist**
 
-- [ ] All type hints are present and correct
-- [ ] Unit tests cover core functionality
-- [ ] Integration tests verify end-to-end workflows
-- [ ] CLI commands are documented with help text
-- [ ] Error handling covers expected failure modes
-- [ ] Code follows project style guidelines (Ruff, Pyright)
+- All type hints are present and correct
+- Unit tests cover core functionality
+- Integration tests verify end-to-end workflows
+- CLI commands are documented with help text
+- Error handling covers expected failure modes
+- Code follows project style guidelines (Ruff, Pyright)
 
 ### **Testing Strategy**
 
@@ -594,15 +594,15 @@ Each phase is considered complete when:
 - **Type Safety**: Zero type checking errors
 - **Performance**: Handle 1000+ concurrent WebSocket connections
 - **Reliability**: 99.9% uptime for simulation sessions
-- **Usability**: Complete CLI workflows in <5 commands
+- **Usability**: Complete CLI workflows in \<5 commands
 
 ## 🔄 **Next Steps**
 
-1. **Review and Approve Plan**: Stakeholder review of implementation approach
-2. **Set Up Development Environment**: Ensure all tools and dependencies are ready
-3. **Begin Phase 1**: Start with authentication foundation
-4. **Establish CI/CD Pipeline**: Automated testing and deployment
-5. **Monitor Progress**: Regular check-ins and plan adjustments
+1.  **Review and Approve Plan**: Stakeholder review of implementation approach
+2.  **Set Up Development Environment**: Ensure all tools and dependencies are ready
+3.  **Begin Phase 1**: Start with authentication foundation
+4.  **Establish CI/CD Pipeline**: Automated testing and deployment
+5.  **Monitor Progress**: Regular check-ins and plan adjustments
 
 ---
 
