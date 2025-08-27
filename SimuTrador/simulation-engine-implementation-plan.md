@@ -180,23 +180,77 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 ### **Phase 1 Tasks (Foundation & Authentication)**
 
-#### **Task 1: JWT Token Service (Server)**
+#### **Task 1: JWT Token Service (Server)** ✅ **COMPLETED**
 
-**Estimated Time**: 20 minutes  
-**Description**: Create JWT token generation and validation service  
-**Deliverables**:
+**Estimated Time**: 20 minutes ✅ **ACTUAL: 20 minutes**
+**Description**: Create JWT token generation and validation service
+**Deliverables**: ✅ **ALL COMPLETED**
 
-- `JWTService` class with token generation and validation
-- Support for user plans and rate limits in JWT payload
-- Token expiration handling (1 hour default)
-- Unit tests for token operations
+- ✅ `JWTService` class with token generation and validation
+- ✅ Support for user plans and rate limits in JWT payload
+- ✅ Token expiration handling (1 hour default)
+- ✅ Unit tests for token operations (19 tests, 100% pass rate)
 
-**Implementation Steps**:
+**Implementation Steps**: ✅ **ALL COMPLETED**
 
-1.  Create `src/simutrador_server/services/auth/jwt_service.py`
-2.  Implement `generate_token()` and `validate_token()` methods
-3.  Add JWT secret key configuration
-4.  Write unit tests in `tests/unit/test_jwt_service.py`
+1.  ✅ Create `src/simutrador_server/services/auth/jwt_service.py`
+2.  ✅ Implement `generate_token()` and `validate_token()` methods
+3.  ✅ Add JWT secret key configuration
+4.  ✅ Write unit tests in `tests/unit/test_jwt_service.py`
+
+**Additional Features Implemented**:
+
+- ✅ User context extraction with `extract_user_context()`
+- ✅ Token expiry checking with `is_token_expired()`
+- ✅ Token expiry time retrieval with `get_token_expiry()`
+- ✅ Global service instance management
+- ✅ Comprehensive error handling and validation
+- ✅ Security features (audience/issuer validation)
+
+**Files Created**:
+
+- ✅ `src/simutrador_server/services/auth/jwt_service.py` (225 lines)
+- ✅ `src/simutrador_server/services/auth/__init__.py`
+- ✅ `src/simutrador_server/services/__init__.py`
+- ✅ `tests/unit/test_jwt_service.py` (300+ lines, 19 test cases)
+- ✅ `tests/unit/__init__.py`
+- ✅ `tests/__init__.py`
+
+**Dependencies Added**:
+
+- ✅ `pyjwt>=2.8.0` added to pyproject.toml
+- ✅ `simutrador-core>=1.0.9` from TestPyPI
+
+---
+
+## 📊 **Implementation Progress Status**
+
+### **Phase 1: Foundation & Authentication** (2/8 tasks completed - 25%)
+
+- ✅ **Task 1: JWT Token Service (Server)** - COMPLETED
+- ⏳ **Task 2: REST Auth Endpoint (Server)** - PENDING
+- ⏳ **Task 3: WebSocket Authentication (Server)** - PENDING
+- ⏳ **Task 4: Connection Management (Server)** - PENDING
+- ⏳ **Task 5: Authentication Client (Client)** - PENDING
+- ⏳ **Task 6: WebSocket Connection (Client)** - PENDING
+- ✅ **Task 7: CLI Auth Commands (Client)** - COMPLETED
+- ⏳ **Task 8: Integration Tests (Authentication)** - PENDING
+
+### **Overall Project Status**
+
+- **Total Tasks**: 50+ tasks across 8 phases
+- **Completed**: 2 tasks (4%)
+- **In Progress**: 0 tasks
+- **Pending**: 48+ tasks (96%)
+- **Estimated Remaining Time**: 14-18 hours
+
+### **Next Immediate Steps**
+
+1. **Task 2: REST Auth Endpoint** - Implement `/auth/token` endpoint using the JWT service
+2. **Task 5: Authentication Client** - Create AuthClient class for token exchange
+3. **Task 3: WebSocket Authentication** - Add JWT validation to WebSocket connections
+
+---
 
 #### **Task 2: REST Auth Endpoint (Server)**
 
@@ -288,23 +342,57 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 3.  Implement connection error handling
 4.  Write WebSocket connection tests
 
-#### **Task 7: CLI Auth Commands (Client)**
+#### **Task 7: CLI Auth Commands (Client)** ✅ **COMPLETED**
 
-**Estimated Time**: 20 minutes  
-**Description**: Add authentication commands to CLI  
-**Deliverables**:
+**Estimated Time**: 20 minutes ✅ **ACTUAL: 25 minutes**
+**Description**: Add authentication commands to CLI
+**Deliverables**: ✅ **ALL COMPLETED**
 
-- `simutrador-client auth login` command
-- `simutrador-client auth status` command
-- API key configuration via CLI
-- CLI authentication tests
+- ✅ `simutrador-client auth login` command
+- ✅ `simutrador-client auth status` command
+- ✅ `simutrador-client auth logout` command
+- ✅ API key configuration via CLI and environment variables
+- ✅ CLI authentication tests (19 test cases, 100% pass rate)
 
-**Implementation Steps**:
+**Implementation Steps**: ✅ **ALL COMPLETED**
 
-1.  Update `src/simutrador_client/cli.py`
-2.  Add authentication subcommands
-3.  Implement API key configuration
-4.  Write CLI authentication tests
+1.  ✅ Update `src/simutrador_client/cli.py`
+2.  ✅ Add authentication subcommands
+3.  ✅ Implement API key configuration
+4.  ✅ Write CLI authentication tests
+
+**Additional Features Implemented**:
+
+- ✅ Configuration-driven usage (optional CLI arguments)
+- ✅ Environment variable support (`AUTH__API_KEY`, `AUTH__SERVER_URL`)
+- ✅ Settings integration with precedence system
+- ✅ Comprehensive error handling and user guidance
+- ✅ Token caching and management
+- ✅ WebSocket URL generation with authentication
+
+**Files Created/Modified**:
+
+- ✅ `src/simutrador_client/cli.py` - Added auth commands
+- ✅ `src/simutrador_client/auth.py` - Authentication client (200+ lines)
+- ✅ `src/simutrador_client/settings.py` - Added auth settings
+- ✅ `.env.sample` - Updated with auth configuration
+- ✅ `tests/unit/test_auth.py` - Auth client tests (20 tests)
+- ✅ `tests/unit/test_cli_auth.py` - CLI auth tests (19 tests)
+- ✅ `README.md` - Updated documentation
+
+**Usage Examples**:
+
+```bash
+# Configuration-driven (recommended)
+cp .env.sample .env
+echo "AUTH__API_KEY=sk_your_key" >> .env
+uv run simutrador-client auth login
+
+# Explicit arguments
+uv run simutrador-client auth login --api-key sk_key
+uv run simutrador-client auth status
+uv run simutrador-client auth logout
+```
 
 #### **Task 8: Integration Tests (Authentication)**
 
