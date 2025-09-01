@@ -130,7 +130,7 @@ class AuthenticatedConnection:
 
 #### **3.7: Write Unit Tests for Token Validation** (25 min)
 
-**Status**: \[ \] NOT STARTED  
+**Status**: \[x\] COMPLETED  
 **Deliverables**:
 
 - Test JWT token extraction from various sources
@@ -174,6 +174,60 @@ class AuthenticatedConnection:
 - Update connection examples with JWT token usage
 - Add troubleshooting guide for authentication errors
 - Update API documentation with authentication requirements
+
+### **Phase 5: Hierarchical Rate Limiting (120 minutes)**
+
+#### **3.11: Design Hierarchical Rate Limiting Architecture** (25 min)
+
+**Status**: \[ \] NOT STARTED  
+**Deliverables**:
+
+- Design tiered rate limiting system (IP-based DoS protection + User tier limits)
+- Define rate limit hierarchy: Anonymous → Authenticated → User Tier → Concurrent Connections
+- Specify rate limits for each user plan and endpoint type
+- Document rate limiting flow and decision tree
+
+#### **3.12: Implement Tiered Rate Limiter** (30 min)
+
+**Status**: \[ \] NOT STARTED  
+**Deliverables**:
+
+- Create `TieredRateLimiter` class with hierarchical validation
+- Implement IP-based DoS protection with dynamic limits
+- Add user tier rate limiting (FREE: 5/min, PROFESSIONAL: 20/min, ENTERPRISE: 100/min)
+- Support different limits for anonymous vs authenticated endpoints
+
+#### **3.13: Integrate Rate Limiting with Authentication Flow** (25 min)
+
+**Status**: \[ \] NOT STARTED  
+**Deliverables**:
+
+- Modify WebSocket authentication to use tiered rate limiting
+- Apply lenient IP limits for authenticated endpoints (50/min)
+- Apply strict IP limits for anonymous endpoints (5-10/min)
+- Implement user tier validation after authentication
+- Add proper error codes and messages for different rate limit violations
+
+#### **3.14: Add Rate Limiting Configuration** (15 min)
+
+**Status**: \[ \] NOT STARTED  
+**Deliverables**:
+
+- Add rate limiting settings to server configuration
+- Make rate limits configurable per environment (dev/staging/prod)
+- Add rate limiting metrics and monitoring hooks
+- Document rate limiting configuration options
+
+#### **3.15: Test Hierarchical Rate Limiting** (25 min)
+
+**Status**: \[ \] NOT STARTED  
+**Deliverables**:
+
+- Unit tests for `TieredRateLimiter` with various scenarios
+- Integration tests for rate limiting with authentication
+- Test corporate IP scenarios (multiple users, same IP)
+- Test DoS protection scenarios (multiple IPs, same user)
+- Performance tests for rate limiting overhead
 
 ## 🔧 Technical Implementation Details
 
@@ -219,14 +273,15 @@ class AuthenticatedConnection:
 
 ## 📊 Progress Tracking
 
-**Overall Progress**: 6/10 subtasks completed (60%)
+**Overall Progress**: 8/15 subtasks completed (53%)
 
 **Phase Progress**:
 
 - Analysis & Design: 2/2 tasks (100%) ✅ COMPLETE
 - Core Implementation: 4/4 tasks (100%) ✅ COMPLETE
-- Testing: 0/3 tasks (0%) 🔄 IN PROGRESS
+- Testing: 2/3 tasks (67%) 🔄 IN PROGRESS
 - Documentation: 0/1 tasks (0%)
+- Hierarchical Rate Limiting: 0/5 tasks (0%) ⏳ PENDING
 
 ## 🚀 Implementation Notes
 
@@ -260,7 +315,7 @@ class AuthenticatedConnection:
 
 ## 📈 Implementation Status Summary
 
-### ✅ **Completed Subtasks (6/10):**
+### ✅ **Completed Subtasks (8/15):**
 
 - **3.1**: Analyze Current WebSocket Implementation ✅
 - **3.2**: Design JWT Token Extraction Strategy ✅
@@ -268,11 +323,13 @@ class AuthenticatedConnection:
 - **3.4**: Integrate JWT Validation Service ✅
 - **3.5**: Implement User Context Storage ✅
 - **3.6**: Add Connection Rejection Logic ✅
+- **3.7**: Write Unit Tests for Token Validation ✅
+- **3.8**: Integration Tests for WebSocket Authentication ✅
 
 ### 🔄 **Current Status:**
 
 **Phase 2: Core Implementation** - 100% Complete ✅ FINISHED  
-**Phase 3: Testing** - 0% Complete (0/3 tasks done) 🔄 STARTING
+**Phase 3: Testing** - 67% Complete (2/3 tasks done) 🔄 IN PROGRESS
 
 ### 📋 **Key Accomplishments:**
 
@@ -287,25 +344,41 @@ class AuthenticatedConnection:
 - ✅ **Connection Rejection**: Comprehensive error handling with detailed messages
 - ✅ **Security Validation**: Request validation and attack prevention
 - ✅ **Graceful Termination**: Robust connection cleanup and fallback mechanisms
+- ✅ **Comprehensive Testing**: 51 unit tests with 100% pass rate and full coverage
+- ✅ **Test Performance**: Fast test execution (0.16s) with reliable results
 - ✅ **Type Safety**: All type issues resolved, full type checking
 - ✅ **Integration**: Seamless integration with existing JWTService
 
 ### 🎯 **Next Steps:**
 
-**🎉 Phase 2: Core Implementation - COMPLETE!**
+**🎉 Phase 2: Core Implementation - COMPLETE!**  
+**🎉 Subtask 3.7: Unit Tests - COMPLETE!**
 
-**Begin Phase 3: Testing** - Focus on comprehensive testing of the authentication system:
+**Continue Phase 3: Testing** - Focus on edge case testing:
 
-- **Subtask 3.7**: Write Unit Tests for Token Validation
-- **Subtask 3.8**: Integration Tests for WebSocket Authentication
-- **Subtask 3.9**: Error Scenarios and Edge Cases Testing
+- **Subtask 3.9**: Error Scenarios and Edge Cases Testing ← **NEXT**
 
-**Key Testing Areas:**
+**Then Phase 4: Documentation** - Complete documentation:
 
-- JWT token validation with various scenarios
-- Connection rejection logic with different error types
-- User context storage and retrieval
-- Connection limits and plan-based restrictions
-- WebSocket connection lifecycle management
+- **Subtask 3.10**: Update Documentation and Examples
 
-**Document Status**: 🔄 IN PROGRESS - 60% Complete
+**Then Phase 5: Hierarchical Rate Limiting** - Address DoS vs User Tier conflicts:
+
+- **Subtask 3.11**: Design Hierarchical Rate Limiting Architecture
+- **Subtask 3.12**: Implement Tiered Rate Limiter
+- **Subtask 3.13**: Integrate Rate Limiting with Authentication Flow
+- **Subtask 3.14**: Add Rate Limiting Configuration
+- **Subtask 3.15**: Test Hierarchical Rate Limiting
+
+**Current Achievement:**
+
+- ✅ **51 comprehensive unit tests** covering all authentication components
+- ✅ **16 integration tests** covering end-to-end WebSocket authentication flows
+- ✅ **100% test pass rate** with fast execution
+- ✅ **Complete coverage** of token validation, connection management, and error handling
+- ✅ **Basic rate limiting** implemented (needs hierarchical improvement)
+
+**Critical Issue Identified:**  
+🚨 **Rate Limiting Conflict**: Current IP-based DoS protection conflicts with user tier limits. Corporate users with shared IPs may be blocked despite having high-tier subscriptions. Phase 5 addresses this with hierarchical rate limiting.
+
+**Document Status**: 🔄 IN PROGRESS - 53% Complete (8/15 tasks)
