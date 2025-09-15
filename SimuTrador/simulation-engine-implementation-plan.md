@@ -4,26 +4,90 @@
 
 This document outlines a systematic implementation plan for the SimuTrador WebSocket API v2.0 simulation engine. The plan breaks down the complex WebSocket-based trading simulation system into manageable development phases, with each functionality implemented in the smallest possible steps on both server and client sides.
 
+## ✅ Status Update (current)
+
+- Authentication: Implemented (JWT over REST + WebSocket auth). 429 Too Many Requests with Retry-After for rate-limited handshakes.
+- Connection caps: Enforced and advertised from a single config source (RateLimitConfig.ws_max_connections_by_plan).
+- Pre-auth WS limiter: Active per-IP token bucket applied before auth (separate from plan caps).
+- Session management (v1): Implemented. In-memory SessionManager with creation on start_simulation, validation, and automatic cleanup on close.
+- Integration tests: Auth flow, WS handshake denials (429), and basic session lifecycle are covered.
+
+## 📊 Progress and Roadmap (condensed)
+
+- Phase 1: Foundation & Authentication — Completed
+- Phase 2: Session Management — In progress (v1 implemented server-side)
+- Phases 3–8: Pending (see roadmap below)
+- Phase 9: Production Authentication — Planned
+
+| Phase                    | Scope (high level)                                                                                           | Status                            |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------ | --------------------------------- |
+| 1\. Foundation & Auth    | JWT service, /auth/token (mock for dev), WS auth, connection caps via config, 429 on rate-limited handshakes | Completed                         |
+| 2\. Session Management   | In‑memory SessionManager; create/validate; v1 uses start_simulation to create; cleanup on close              | In progress (v1 done server‑side) |
+| 3\. Basic Simulation     | Tick generator, flow control, simulation state                                                               | Pending                           |
+| 4\. Order Management     | Validation, storage, batch processing                                                                        | Pending                           |
+| 5\. Execution Engine     | Market data loader, fills, commissions, reports                                                              | Pending                           |
+| 6\. Portfolio Management | Positions, snapshots, performance metrics                                                                    | Pending                           |
+| 7\. Advanced             | Pause/resume, reconnection, message‑level rate limits                                                        | Pending                           |
+| 8\. Production Readiness | Monitoring, optimization, logging                                                                            | Pending                           |
+| 9\. Production Auth      | Real user management, API keys, DB, security                                                                 | Planned                           |
+
+### Execution tracker (authoritative)
+
+- Authentication
+  - JWT auth implemented; CLI login/status/logout
+  - WS handshake denial returns 429 with Retry-After when rate-limited
+- WebSocket + Health
+  - connection_ready advertises plan cap from single config source
+  - Pre-auth IP WS limiter (429 + Retry-After) active
+  - Standardize health/handshake headers (X-RateLimit-\*, Retry-After) consistently
+- Rate limiting
+  - Single source of truth for per-plan concurrent WS caps
+  - Message-level limits: finalize policy + consistent error format
+  - Make Retry-After for plan caps configurable (not hardcoded "5")
+- Sessions
+  - SessionManager v1 (in-memory), create on start_simulation, auto-cleanup
+  - Expose create_session/list/close handlers; enforce per-user session caps
+- Client SDK/CLI
+  - WebSocket client abstraction + persistent connection
+  - CLI simulate/session subcommands (start, list, close)
+- Testing/Docs
+  - WS auth + 429 handshake tests (server)
+  - Rate-limiting integration tests (client)
+  - Demo-as-test for connection caps vs pre-auth limiter; troubleshooting note
+
+### 🔐 Rate Limiting (single config source)
+
+- Plan caps are read from one place: RateLimitConfig.ws_max_connections_by_plan (e.g., FREE=2)
+- Enforcement and the advertised concurrent_connections_limit both use this config
+- Pre‑auth WebSocket IP limiter runs before plan checks; on exhaustion it rejects the handshake with HTTP 429 and Retry‑After
+- Plan cap rejections also return HTTP 429; clients can distinguish using context/logs
+
+### 🧩 Session Management v1 snapshot
+
+- Storage: In‑memory SessionManager
+- Lifecycle: Created on start_simulation; validated; cleaned up on close/disconnect
+- Next: Add explicit create_session message, client-side session commands, and stronger validation against market data
+
 ## 🎯 **Current State Analysis**
 
 ### ✅ **What Exists**
 
 - **Core Models**: Complete Pydantic models in `simutrador-core` for WebSocket communication
-- **Basic Server**: Minimal FastAPI server with health check WebSocket endpoint
-- **Basic Client**: Simple CLI client with health check functionality and configuration management
-- **Testing Infrastructure**: Comprehensive test structure with unit, integration, and paid API tests
+- **Server**: FastAPI WebSocket server with JWT auth, 429 handshake denials with Retry-After, and connection caps
+- **Client**: CLI auth flow; WS flows exercised in integration tests; no SDK WebSocket abstraction/CLI simulate/session yet
+- **Session Management (v1)**: In-memory SessionManager; creation on `start_simulation`, validation, and cleanup on close
+- **Rate Limiting (config-driven)**: Plan-based concurrent connection caps sourced from a single config; pre-auth IP limiter active
+- **Testing Infrastructure**: Unit + integration tests including auth, WS handshake denials, and session lifecycle
 - **Documentation**: Complete API specification in `ws_api_v2.md`
 
 ### 🔄 **What Needs Implementation**
 
-- **Authentication System**: JWT token exchange and WebSocket authentication
-- **Session Management**: Create, validate, and manage simulation sessions
 - **Simulation Engine**: Core tick-by-tick execution with order processing
 - **Market Data Integration**: Historical data loading and validation
 - **Order Execution**: Realistic fill simulation with slippage and commissions
 - **Portfolio Management**: Account state tracking and performance metrics
 - **Error Handling**: Comprehensive error recovery and reconnection logic
-- **Rate Limiting**: User plan-based limits and connection management
+- **Rate Limiting (message-level)**: Burst/throughput limits and consistent headers across endpoints
 
 ## 🏗️ **Implementation Strategy**
 
@@ -206,7 +270,9 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 2.  **Admin Dashboard**: Web interface for user management
 3.  **Monitoring**: Authentication metrics and alerting
 
-## 🔧 **Detailed Task Breakdown**
+## Appendix: Historical breakdown (superseded by Execution tracker)
+
+Note: The following detailed lists are historical. The “Execution tracker (authoritative)” above is the source of truth.
 
 ### **Phase 1 Tasks (Foundation & Authentication)**
 
@@ -253,7 +319,9 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 
 ---
 
-## 📊 **Implementation Progress Status**
+## Appendix: Historical progress status (superseded by Execution tracker)
+
+Note: The following status is historical and may not reflect current reality. Refer to the Execution tracker above.
 
 ### **Phase 1: Foundation & Authentication** (8/8 tasks completed - 100%) ✅ **COMPLETED**
 
@@ -332,77 +400,6 @@ This document outlines a systematic implementation plan for the SimuTrador WebSo
 - ✅ **VS Code Integration**: Three launch configurations (Both Servers, Auth Only, WebSocket Only)
 - ✅ **Documentation**: Updated all README files and configuration examples
 - ✅ **Testing**: Authentication endpoints verified and working
-
----
-
-## 🎉 **MAJOR MILESTONE: Phase 1 Complete - WebSocket Authentication System**
-
-**Date**: September 3, 2025  
-**Achievement**: Successfully implemented and deployed complete WebSocket authentication system
-
-### **🎯 What Was Accomplished:**
-
-**Complete Authentication System**:
-
-- JWT-based WebSocket authentication with proper token validation
-- User plan-based connection limits (FREE: 2, PROFESSIONAL: 10, ENTERPRISE: 50)
-- Configuration-based rate limiting system (superior to originally planned approach)
-- Comprehensive error handling with proper WebSocket close codes
-
-**Production-Ready Implementation**:
-
-- 102 comprehensive tests (100% passing)
-- Type-safe implementation with full type annotations
-- Clean CI/CD pipeline with reliable pre-push hooks
-- Real-world validation with CLI integration
-
-**Architecture Excellence**:
-
-- Configuration-driven rate limiting (replaced environment variable dependencies)
-- Clean separation between test and production modes
-- Maintainable, testable, and scalable design
-- Multi-repository coordination with proper dependency management
-
-### **🚀 Impact on Development Velocity:**
-
-- **Solid Foundation**: Authentication system ready for all future phases
-- **Testing Framework**: Comprehensive test infrastructure for rapid development
-- **Clean Architecture**: Configuration-based approach enables easy feature additions
-- **Production Readiness**: System ready for deployment with enterprise-grade security
-
----
-
-## 🎯 **Previous Milestone: Multi-Service Architecture**
-
-**Date**: August 29, 2024  
-**Achievement**: Successfully implemented and deployed multi-service server architecture
-
-### **What Was Accomplished:**
-
-**Architecture Transformation**:
-
-- Moved from single-service to multi-service architecture
-- Separated authentication (REST API) and WebSocket services
-- Implemented proper service isolation and port management
-
-**Development Experience Enhancement**:
-
-- VS Code integration with launch configurations
-- Environment-based configuration system
-- Streamlined development workflow
-
-**Production Readiness Improvements**:
-
-- Type-safe authentication API
-- Shared model library integration
-- Comprehensive documentation updates
-
-### **Impact on Development Velocity:**
-
-- **Faster Development**: Individual services can be developed and tested independently
-- **Better Debugging**: VS Code launch configurations enable targeted debugging
-- **Cleaner Architecture**: Clear separation of concerns between auth and WebSocket services
-- **Scalability Foundation**: Architecture ready for horizontal scaling
 
 ---
 
@@ -944,14 +941,23 @@ Each phase is considered complete when:
 
 ## 🔄 **Next Steps**
 
-1.  **Review and Approve Plan**: Stakeholder review of implementation approach
-2.  **Set Up Development Environment**: Ensure all tools and dependencies are ready
-3.  **Begin Phase 1**: Start with authentication foundation
-4.  **Establish CI/CD Pipeline**: Automated testing and deployment
-5.  **Monitor Progress**: Regular check-ins and plan adjustments
+Phase 2: Session Management
 
----
+1.  Add explicit `create_session` WebSocket message and handler (server)
+2.  Client SDK + CLI: `session create` and `session status` commands (client)
+3.  Market data validation: symbols/date ranges against provider (server)
 
-**Total Estimated Development Time**: 50-60 tasks × 20 minutes = 16-20 hours of focused development
+Rate limiting
 
-This systematic approach ensures that each piece of functionality is thoroughly tested and integrated before moving to the next phase, resulting in a robust and maintainable simulation engine.
+- Keep plan caps in `RateLimitConfig.ws_max_connections_by_plan`
+- Consider making pre-auth WS limiter thresholds config-driven
+- Ensure consistent `X-RateLimit-*` and `Retry-After` across all 429 responses
+
+Testing
+
+- Integration tests for `create_session` flow
+- Tests that distinguish pre-auth 429 (handshake) vs plan-cap 429
+
+Documentation
+
+- Keep demo flags and troubleshooting in sync with current behavior and headers
