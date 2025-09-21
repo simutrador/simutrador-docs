@@ -1,55 +1,55 @@
 # SimuTrador - Complete Trading Simulation Platform
 
-
 - [[#🎯 Core Philosophy|🎯 Core Philosophy]]
-	- [[#🎯 Core Philosophy#Data Separation Model|Data Separation Model]]
+  - [[#🎯 Core Philosophy#Data Separation Model|Data Separation Model]]
 - [[#🔒 Key Advantages|🔒 Key Advantages]]
-	- [[#🔒 Key Advantages#Privacy & Security|Privacy & Security]]
-	- [[#🔒 Key Advantages#Execution Fidelity|Execution Fidelity]]
-	- [[#🔒 Key Advantages#Developer Experience|Developer Experience]]
-	- [[#🔒 Key Advantages#Scalability & Performance|Scalability & Performance]]
+  - [[#🔒 Key Advantages#Privacy & Security|Privacy & Security]]
+  - [[#🔒 Key Advantages#Execution Fidelity|Execution Fidelity]]
+  - [[#🔒 Key Advantages#Developer Experience|Developer Experience]]
+  - [[#🔒 Key Advantages#Scalability & Performance|Scalability & Performance]]
 - [[#🚀 Use Cases|🚀 Use Cases]]
-	- [[#🚀 Use Cases#Quantitative Research|Quantitative Research]]
-	- [[#🚀 Use Cases#Algorithm Validation|Algorithm Validation]]
-	- [[#🚀 Use Cases#Production Preparation|Production Preparation]]
+  - [[#🚀 Use Cases#Quantitative Research|Quantitative Research]]
+  - [[#🚀 Use Cases#Algorithm Validation|Algorithm Validation]]
+  - [[#🚀 Use Cases#Production Preparation|Production Preparation]]
 - [[#💡 Competitive Advantages|💡 Competitive Advantages]]
-	- [[#💡 Competitive Advantages#vs. Traditional Backtesting Platforms|vs. Traditional Backtesting Platforms]]
-	- [[#💡 Competitive Advantages#vs. Professional Platforms|vs. Professional Platforms]]
-	- [[#💡 Competitive Advantages#vs. DIY Solutions|vs. DIY Solutions]]
+  - [[#💡 Competitive Advantages#vs. Traditional Backtesting Platforms|vs. Traditional Backtesting Platforms]]
+  - [[#💡 Competitive Advantages#vs. Professional Platforms|vs. Professional Platforms]]
+  - [[#💡 Competitive Advantages#vs. DIY Solutions|vs. DIY Solutions]]
 - [[#💸 Pricing Model|💸 Pricing Model]]
 - [[#📈 Roadmap & Future Vision|📈 Roadmap & Future Vision]]
-	- [[#📈 Roadmap & Future Vision#Phase 1 - December 2025|Phase 1 - December 2025]]
-	- [[#📈 Roadmap & Future Vision#Phase 2 - March 2026 \[Go Live\] 💪|Phase 2 - March 2026 \[Go Live\] 💪]]
-	- [[#📈 Roadmap & Future Vision#Phase 3- June 2026|Phase 3- June 2026]]
-	- [[#📈 Roadmap & Future Vision#Long-term (2026+)|Long-term (2026+)]]
+  - [[#📈 Roadmap & Future Vision#Phase 1 - December 2025|Phase 1 - December 2025]]
+  - [[#📈 Roadmap & Future Vision#Phase 2 - March 2026 \[Go Live\] 💪|Phase 2 - March 2026 \[Go Live\] 💪]]
+  - [[#📈 Roadmap & Future Vision#Phase 3- June 2026|Phase 3- June 2026]]
+  - [[#📈 Roadmap & Future Vision#Long-term (2026+)|Long-term (2026+)]]
 - [[#🛠️ Technical Implementation|🛠️ Technical Implementation]]
 - [[#🧩 Multi-Repository Structure (Mono → Multi Repo)|🧩 Multi-Repository Structure (Mono → Multi Repo)]]
 - [[#🏗️ System Architecture|🏗️ System Architecture]]
-	- [[#🏗️ System Architecture#Data Management Layer (OHLCV Manager)|Data Management Layer (OHLCV Manager)]]
-	- [[#🏗️ System Architecture#Simulation Layer (WebSocket Engine)|Simulation Layer (WebSocket Engine)]]
-	- [[#🏗️ System Architecture#Data Pipeline Architecture|Data Pipeline Architecture]]
-	- [[#🏗️ System Architecture#Simulation Engine Design|Simulation Engine Design]]
+  - [[#🏗️ System Architecture#Data Management Layer (OHLCV Manager)|Data Management Layer (OHLCV Manager)]]
+  - [[#🏗️ System Architecture#Simulation Layer (WebSocket Engine)|Simulation Layer (WebSocket Engine)]]
+  - [[#🏗️ System Architecture#Data Pipeline Architecture|Data Pipeline Architecture]]
+  - [[#🏗️ System Architecture#Simulation Engine Design|Simulation Engine Design]]
 - [[#🔧 Getting Started|🔧 Getting Started]]
-	- [[#🔧 Getting Started#1\. Data Setup|1\. Data Setup]]
-	- [[#🔧 Getting Started#2\. Authentication|2\. Authentication]]
-	- [[#🔧 Getting Started#3\. Simulation Setup|3\. Simulation Setup]]
-	- [[#🔧 Getting Started#4\. Strategy Implementation|4\. Strategy Implementation]]
+  - [[#🔧 Getting Started#1\. Data Setup|1\. Data Setup]]
+  - [[#🔧 Getting Started#2\. Authentication|2\. Authentication]]
+  - [[#🔧 Getting Started#3\. Simulation Setup|3\. Simulation Setup]]
+  - [[#🔧 Getting Started#4\. Strategy Implementation|4\. Strategy Implementation]]
 - [[#📚 Documentation Structure|📚 Documentation Structure]]
-	- [[#📚 Documentation Structure#OHLCV Data Manager|OHLCV Data Manager]]
-	- [[#📚 Documentation Structure#WebSocket Simulation API|WebSocket Simulation API]]
+  - [[#📚 Documentation Structure#OHLCV Data Manager|OHLCV Data Manager]]
+  - [[#📚 Documentation Structure#WebSocket Simulation API|WebSocket Simulation API]]
 - [[#🤝 Community & Support|🤝 Community & Support]]
-	- [[#🤝 Community & Support#Documentation & Resources|Documentation & Resources]]
-	- [[#🤝 Community & Support#Support Channels|Support Channels]]
-	- [[#🤝 Community & Support#Contributing|Contributing]]
+  - [[#🤝 Community & Support#Documentation & Resources|Documentation & Resources]]
+  - [[#🤝 Community & Support#Support Channels|Support Channels]]
+  - [[#🤝 Community & Support#Contributing|Contributing]]
 - [[#OHLCV Data Manager|OHLCV Data Manager]]
 - [[#WebSocket Simulation API|WebSocket Simulation API]]
+
 ## Overview
 
 **SimuTrador** is a comprehensive trading simulation platform that combines robust historical data management with high-fidelity order execution simulation. The platform consists of three integrated systems:
 
 1.  **OHLCV Data Manager** - A sophisticated data pipeline for fetching, storing, and processing historical market data
 2.  **Simutrador Server** - A real-time trading simulator that executes orders against historical data with realistic market conditions
-3. **SimuTrador Client** - A python library that is used to handle the communication with the server.
+3.  **SimuTrador Client** - A python library that is used to handle the communication with the server.
 
 Together, these systems provide developers and quantitative traders with a complete solution for strategy development, backtesting, and validation.
 
@@ -71,8 +71,6 @@ Client Side:                    Server Side:
 - Order generation             - Portfolio tracking
 - Simulation control           - Performance calculation
 ```
-
-
 
 ## 🔒 Key Advantages
 
@@ -103,7 +101,6 @@ Client Side:                    Server Side:
 - **Efficient data access** - Columnar storage with intelligent caching
 - **Streaming execution** - Memory-efficient processing of large datasets
 - **Cloud-ready architecture** - Designed for horizontal scaling
-
 
 ## 🚀 Use Cases
 
@@ -196,7 +193,6 @@ SimuTrador offers flexible pricing tiers to accommodate different user needs:
 - ⚡ **Real-time Simulation** - Live market simulation with streaming data
 
 ## 🛠️ Technical Implementation
-
 
 ## 🧩 Multi-Repository Structure (Mono → Multi Repo)
 
@@ -341,18 +337,20 @@ This documentation is organized into two main sections:
 
 ### OHLCV Data Manager
 
-Comprehensive guide to the data management system:
+Comprehensive guide to the data management system (located in [simutrador-data-manager repository](https://github.com/simutrador/simutrador-data-manager)):
 
+- **[OHLCV Manager Overview](https://github.com/simutrador/simutrador-data-manager/blob/main/docs/ohlcv_manager.md)** - System architecture and components
+- **[Nightly Update API](https://github.com/simutrador/simutrador-data-manager/blob/main/docs/nightly%20update.md)** - Automated data update workflows
+- **[Data Analysis API](https://github.com/simutrador/simutrador-data-manager/blob/main/docs/data%20analysis.md)** - Data completeness and quality analysis
 - Data provider integration and configuration
 - Storage architecture and optimization
 - Validation and quality assurance
-- Automated update workflows
-- API reference for data access
 
 ### WebSocket Simulation API
 
 Complete reference for the trading simulation engine:
 
+- **[WebSocket API v2.0](./simutrador-server/ws_api_v2.md)** - Complete API specification and examples
 - Authentication and connection management
 - Session lifecycle and configuration
 - Order types and execution modeling
