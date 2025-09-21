@@ -1,74 +1,66 @@
 # SimuTrador - Complete Trading Simulation Platform
 
+
+- [[#🎯 Core Philosophy|🎯 Core Philosophy]]
+	- [[#🎯 Core Philosophy#Data Separation Model|Data Separation Model]]
+- [[#🔒 Key Advantages|🔒 Key Advantages]]
+	- [[#🔒 Key Advantages#Privacy & Security|Privacy & Security]]
+	- [[#🔒 Key Advantages#Execution Fidelity|Execution Fidelity]]
+	- [[#🔒 Key Advantages#Developer Experience|Developer Experience]]
+	- [[#🔒 Key Advantages#Scalability & Performance|Scalability & Performance]]
+- [[#🚀 Use Cases|🚀 Use Cases]]
+	- [[#🚀 Use Cases#Quantitative Research|Quantitative Research]]
+	- [[#🚀 Use Cases#Algorithm Validation|Algorithm Validation]]
+	- [[#🚀 Use Cases#Production Preparation|Production Preparation]]
+- [[#💡 Competitive Advantages|💡 Competitive Advantages]]
+	- [[#💡 Competitive Advantages#vs. Traditional Backtesting Platforms|vs. Traditional Backtesting Platforms]]
+	- [[#💡 Competitive Advantages#vs. Professional Platforms|vs. Professional Platforms]]
+	- [[#💡 Competitive Advantages#vs. DIY Solutions|vs. DIY Solutions]]
+- [[#💸 Pricing Model|💸 Pricing Model]]
+- [[#📈 Roadmap & Future Vision|📈 Roadmap & Future Vision]]
+	- [[#📈 Roadmap & Future Vision#Phase 1 - December 2025|Phase 1 - December 2025]]
+	- [[#📈 Roadmap & Future Vision#Phase 2 - March 2026 \[Go Live\] 💪|Phase 2 - March 2026 \[Go Live\] 💪]]
+	- [[#📈 Roadmap & Future Vision#Phase 3- June 2026|Phase 3- June 2026]]
+	- [[#📈 Roadmap & Future Vision#Long-term (2026+)|Long-term (2026+)]]
+- [[#🛠️ Technical Implementation|🛠️ Technical Implementation]]
+- [[#🧩 Multi-Repository Structure (Mono → Multi Repo)|🧩 Multi-Repository Structure (Mono → Multi Repo)]]
+- [[#🏗️ System Architecture|🏗️ System Architecture]]
+	- [[#🏗️ System Architecture#Data Management Layer (OHLCV Manager)|Data Management Layer (OHLCV Manager)]]
+	- [[#🏗️ System Architecture#Simulation Layer (WebSocket Engine)|Simulation Layer (WebSocket Engine)]]
+	- [[#🏗️ System Architecture#Data Pipeline Architecture|Data Pipeline Architecture]]
+	- [[#🏗️ System Architecture#Simulation Engine Design|Simulation Engine Design]]
+- [[#🔧 Getting Started|🔧 Getting Started]]
+	- [[#🔧 Getting Started#1\. Data Setup|1\. Data Setup]]
+	- [[#🔧 Getting Started#2\. Authentication|2\. Authentication]]
+	- [[#🔧 Getting Started#3\. Simulation Setup|3\. Simulation Setup]]
+	- [[#🔧 Getting Started#4\. Strategy Implementation|4\. Strategy Implementation]]
+- [[#📚 Documentation Structure|📚 Documentation Structure]]
+	- [[#📚 Documentation Structure#OHLCV Data Manager|OHLCV Data Manager]]
+	- [[#📚 Documentation Structure#WebSocket Simulation API|WebSocket Simulation API]]
+- [[#🤝 Community & Support|🤝 Community & Support]]
+	- [[#🤝 Community & Support#Documentation & Resources|Documentation & Resources]]
+	- [[#🤝 Community & Support#Support Channels|Support Channels]]
+	- [[#🤝 Community & Support#Contributing|Contributing]]
+- [[#OHLCV Data Manager|OHLCV Data Manager]]
+- [[#WebSocket Simulation API|WebSocket Simulation API]]
 ## Overview
 
-**SimuTrador** is a comprehensive trading simulation platform that combines robust historical data management with high-fidelity order execution simulation. The platform consists of two integrated systems:
+**SimuTrador** is a comprehensive trading simulation platform that combines robust historical data management with high-fidelity order execution simulation. The platform consists of three integrated systems:
 
 1.  **OHLCV Data Manager** - A sophisticated data pipeline for fetching, storing, and processing historical market data
-2.  **WebSocket Simulation Engine** - A real-time trading simulator that executes orders against historical data with realistic market conditions
+2.  **Simutrador Server** - A real-time trading simulator that executes orders against historical data with realistic market conditions
+3. **SimuTrador Client** - A python library that is used to handle the communication with the server.
 
 Together, these systems provide developers and quantitative traders with a complete solution for strategy development, backtesting, and validation.
 
 ## 🎯 Core Philosophy
 
-SimuTrador is built on the principle of **privacy-respecting realistic simulation**. Unlike traditional backtesting platforms that require you to upload your strategy code, SimuTrador allows you to:
+SimuTrador is built on the principle of **privacy-respecting, realistic simulation**. Unlike traditional backtesting platforms that require you to upload your strategy code, SimuTrador allows you to:
 
 - **Keep your strategy logic private** - Your proprietary algorithms never leave your environment
 - **Test with realistic execution** - Includes slippage, latency, and commissions for accurate results
 - **Use your own data** - Client manages market data access while server validates execution
 - **Scale from research to production** - Same logic works for backtesting and live trading
-
-## 🧩 Multi-Repository Structure (Mono → Multi Repo)
-
-SimuTrador is organized as a set of focused repositories that work together in a single VS Code workspace.
-
-Project workspace layout:
-
-```
-simutrador/ (local workspace folder)
-├── simutrador-core/              # Shared Python models & utilities (Open Source - MIT)
-├── simutrador-data-manager/      # OHLCV data pipeline and APIs (Open Source - MIT)
-├── simutrador-docs/              # Documentation vault (Open Source - MIT)
-├── simutrador-client/            # Python client SDK for the WebSocket API (Open Source - MIT)
-└── simutrador-server/            # Simulation engine (Private)
-```
-
-Repository links:
-
-- Core library: https://github.com/simutrador/simutrador-core
-- Data manager: https://github.com/simutrador/simutrador-data-manager
-- Documentation: https://github.com/simutrador/simutrador-docs
-- Client SDK: https://github.com/simutrador/simutrador-client
-- Simulation server (private): https://github.com/simutrador/simutrador-server
-
-Open the multi-repo workspace in VS Code:
-
-```
-code simutrador.code-workspace
-```
-
-Notes:
-
-- simutrador-core is versioned and consumed by other repos. During development, some repos pull it from TestPyPI until the final PyPI release.
-- Each repo uses uv for dependency management, strict type checking with Pyright, Ruff for linting, and pre-push hooks for quality gates.
-
-## 🏗️ System Architecture
-
-### Data Management Layer (OHLCV Manager)
-
-- **Multi-provider data fetching** from Polygon.io, Financial Modeling Prep, and Tiingo
-- **Intelligent storage** using partitioned Parquet files for optimal performance
-- **Asset-aware resampling** that matches provider aggregation patterns
-- **Automated data validation** with gap detection and filling
-- **Nightly update workflows** for maintaining current data
-
-### Simulation Layer (WebSocket Engine)
-
-- **Real-time order execution** with tick-by-tick progression
-- **Realistic market simulation** including slippage and commission modeling
-- **Flow control mechanisms** for managing simulation pace
-- **Multi-asset support** with portfolio tracking
-- **Interactive controls** for pause/resume and state inspection
 
 ### Data Separation Model
 
@@ -79,6 +71,8 @@ Client Side:                    Server Side:
 - Order generation             - Portfolio tracking
 - Simulation control           - Performance calculation
 ```
+
+
 
 ## 🔒 Key Advantages
 
@@ -109,6 +103,7 @@ Client Side:                    Server Side:
 - **Efficient data access** - Columnar storage with intelligent caching
 - **Streaming execution** - Memory-efficient processing of large datasets
 - **Cloud-ready architecture** - Designed for horizontal scaling
+
 
 ## 🚀 Use Cases
 
@@ -202,6 +197,59 @@ SimuTrador offers flexible pricing tiers to accommodate different user needs:
 
 ## 🛠️ Technical Implementation
 
+
+## 🧩 Multi-Repository Structure (Mono → Multi Repo)
+
+SimuTrador is organized as a set of focused repositories that work together in a single VS Code workspace.
+
+Project workspace layout:
+
+```
+simutrador/ (local workspace folder)
+├── simutrador-core/              # Shared Python models & utilities (Open Source - MIT)
+├── simutrador-data-manager/      # OHLCV data pipeline and APIs (Open Source - MIT)
+├── simutrador-docs/              # Documentation vault (Open Source - MIT)
+├── simutrador-client/            # Python client SDK for the WebSocket API (Open Source - MIT)
+└── simutrador-server/            # Simulation engine (Private)
+```
+
+Repository links:
+
+- Core library: https://github.com/simutrador/simutrador-core
+- Data manager: https://github.com/simutrador/simutrador-data-manager
+- Documentation: https://github.com/simutrador/simutrador-docs
+- Client SDK: https://github.com/simutrador/simutrador-client
+- Simulation server (private): https://github.com/simutrador/simutrador-server
+
+Open the multi-repo workspace in VS Code:
+
+```
+code simutrador.code-workspace
+```
+
+Notes:
+
+- simutrador-core is versioned and consumed by other repos. During development, some repos pull it from TestPyPI until the final PyPI release.
+- Each repo uses uv for dependency management, strict type checking with Pyright, Ruff for linting, and pre-push hooks for quality gates.
+
+## 🏗️ System Architecture
+
+### Data Management Layer (OHLCV Manager)
+
+- **Multi-provider data fetching** from Polygon.io, Financial Modeling Prep, and Tiingo
+- **Intelligent storage** using partitioned Parquet files for optimal performance
+- **Asset-aware resampling** that matches provider aggregation patterns
+- **Automated data validation** with gap detection and filling
+- **Nightly update workflows** for maintaining current data
+
+### Simulation Layer (WebSocket Engine)
+
+- **Real-time order execution** with tick-by-tick progression
+- **Realistic market simulation** including slippage and commission modeling
+- **Flow control mechanisms** for managing simulation pace
+- **Multi-asset support** with portfolio tracking
+- **Interactive controls** for pause/resume and state inspection
+
 ### Data Pipeline Architecture
 
 The OHLCV Manager implements a sophisticated data processing pipeline:
@@ -240,7 +288,7 @@ curl -X POST http://localhost:8002/nightly-update/start \
 
 ### 2\. Authentication
 
-Obtain your API credentials and exchange for a JWT token:
+Obtain your API credentials and exchange them for a JWT token:
 
 ```
 # Get JWT token
