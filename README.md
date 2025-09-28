@@ -1,6 +1,7 @@
 # SimuTrador Docs
 
 [![Docs • Build & Deploy](https://github.com/simutrador/simutrador-docs/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/simutrador/simutrador-docs/actions/workflows/docs.yml)
+
 [![Docs Live](https://img.shields.io/badge/docs-live-brightgreen)](https://simutrador.github.io/simutrador-docs/)
 
 ➡️ **Documentation:** https://simutrador.github.io/simutrador-docs/
