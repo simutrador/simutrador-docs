@@ -1,0 +1,23 @@
+name: Docs • Build & Deploy (caller)
+
+on:
+  push:
+    branches: [main] # change if your default branch isn't 'main'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: simutrador/.github/.github/workflows/reusable-mkdocs-pages.yml@main
+    with:
+      python_version: "3.12"
+      publish_dir: "site"
+      # OPTIONAL: pull docs from other repos into docs/projects/*
+      # Format: repo:path_in_repo:dest_subdir
+      # aggregate_docs: >
+      #   simutrador-core:README.md:core,
+      #   simutrador-core:ai-index.md:core,
+      #   simutrador-data-manager:docs:data-manager,
+      #   simutrador-client:docs:client,
+      #   simutrador-server:docs:server
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
