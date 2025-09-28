@@ -2,15 +2,26 @@ name: Docs • Build & Deploy (caller)
 
 on:
   push:
-    branches: [main] # change if your default branch differs
+    branches: [main]
   workflow_dispatch:
+
+# (optional but nice) set defaults at workflow level
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     uses: simutrador/.github/.github/workflows/reusable-mkdocs-pages.yml@main
+    # REQUIRED: permissions must be passed to the called workflow
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     with:
       python_version: "3.12"
       publish_dir: "site"
-      aggregate_docs: "" # add aggregation later after it’s green
+      aggregate_docs: ""
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
