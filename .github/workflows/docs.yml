@@ -2,7 +2,7 @@ name: Docs • Build & Deploy (caller)
 
 on:
   push:
-    branches: [main] # change if your default branch isn't 'main'
+    branches: [main] # change if your default branch differs
   workflow_dispatch:
 
 jobs:
@@ -11,13 +11,6 @@ jobs:
     with:
       python_version: "3.12"
       publish_dir: "site"
-      # OPTIONAL: pull docs from other repos into docs/projects/*
-      # Format: repo:path_in_repo:dest_subdir
-      # aggregate_docs: >
-      #   simutrador-core:README.md:core,
-      #   simutrador-core:ai-index.md:core,
-      #   simutrador-data-manager:docs:data-manager,
-      #   simutrador-client:docs:client,
-      #   simutrador-server:docs:server
+      aggregate_docs: "" # add aggregation later after it’s green
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
