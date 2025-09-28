@@ -1,0 +1,36 @@
+site_name: SimuTrador Docs
+site_url: https://simutrador.github.io/simutrador-docs
+repo_url: https://github.com/simutrador/simutrador-docs
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.emoji
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search
+  - roamlinks # resolves Obsidian [[wikilinks]]
+  - mermaid2 # mermaid code fences like in Obsidian
+  - awesome-pages # auto nav from folders (we’ll copy other repos here)
+
+# Your vault files are at repo root (index.md etc.)
+docs_dir: docs

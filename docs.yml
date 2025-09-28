@@ -1,0 +1,21 @@
+name: Docs • Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  call-reusable:
+    uses: simutrador/.github/.github/workflows/reusable-mkdocs-pages.yml@main
+    with:
+      python_version: "3.12"
+      publish_dir: "site"
+      # Pull each repo’s docs folder (adjust paths to match your screenshot)
+      aggregate_docs: >
+        simutrador-core:README.md:core,
+        simutrador-data-manager:docs:data-manager,
+        simutrador-client:docs:client,
+        simutrador-server:docs:server
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,17 @@
+[project]
+name = "simutrador-docs"
+version = "0.1.0"
+description = "SimuTrador documentation site (Obsidian → MkDocs)"
+requires-python = ">=3.11"
+
+dependencies = [
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocs-roamlinks-plugin",
+  "mkdocs-awesome-pages-plugin",
+  "mkdocs-mermaid2-plugin",
+  "pymdown-extensions",
+]
+
+[tool.uv]
+# lockfile: uv.lock (already present in your repos)

@@ -1,24 +1,34 @@
 {
   "main": {
-    "id": "07dd27df4fd56592",
+    "id": "ab701be031d62bc1",
     "type": "split",
     "children": [
       {
-        "id": "76615f5fa6969dbf",
+        "id": "c8b2a8d606ce83fb",
         "type": "tabs",
         "children": [
           {
-            "id": "00fdedad49c94c9a",
+            "id": "2a5b72c7688ac9e9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SimuTrador/repository-migration-plan.md",
+                "file": "28-09-2025.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
               "icon": "lucide-file",
-              "title": "repository-migration-plan"
+              "title": "28-09-2025"
             }
           }
         ]
@@ -27,15 +37,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "2ae2cb40a474272f",
+    "id": "5e684e90b41d989d",
     "type": "split",
     "children": [
       {
-        "id": "1c7306cf2dd6e03e",
+        "id": "8d20138a4169bed8",
         "type": "tabs",
         "children": [
           {
-            "id": "b327c7794f6897e6",
+            "id": "f8c249cf1e884c07",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +58,7 @@
             }
           },
           {
-            "id": "ec5b69721f9bd1cf",
+            "id": "b960e309c0de9d50",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +75,7 @@
             }
           },
           {
-            "id": "ad13fbc0aa2010fd",
+            "id": "0c40b7d91aa33daf",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -78,24 +88,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 300
   },
   "right": {
-    "id": "c4171fde6ac15e71",
+    "id": "b52223bc1ef1b208",
     "type": "split",
     "children": [
       {
-        "id": "c64bdd608d043277",
+        "id": "da7bad4d1ece0224",
         "type": "tabs",
         "children": [
           {
-            "id": "7a33a4f2cd90bcd0",
+            "id": "06047e452b280901",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SimuTrador/repository-migration-plan.md",
+                "file": "main.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,16 +114,16 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for repository-migration-plan"
+              "title": "Backlinks for main"
             }
           },
           {
-            "id": "4f21a5cee5bca7cc",
+            "id": "bd69e22b5b12152f",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SimuTrador/repository-migration-plan.md",
+                "file": "repository-migration-plan.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -123,7 +132,7 @@
             }
           },
           {
-            "id": "43ec158a6b1c54e2",
+            "id": "3e1ef5dfff0838c2",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -138,12 +147,12 @@
             }
           },
           {
-            "id": "3de8c7aca6e7ea7f",
+            "id": "9a6703990476bee1",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "SimuTrador/repository-migration-plan.md",
+                "file": "repository-migration-plan.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -161,6 +170,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -169,33 +179,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "00fdedad49c94c9a",
+  "active": "2a5b72c7688ac9e9",
   "lastOpenFiles": [
-    "SimuTrador/main.md",
-    "SimuTrador/repository-migration-plan.md",
-    "main.pdf",
-    "SimuTrador/ohlcv_manager.md",
-    "SimuTrador/ws_api_v2.md",
-    "SimuTrador/API/nightly update.md",
-    "SimuTrador/API/data analysis.md",
-    "SimuTrador",
-    "simutrade_obsidian_mermaid.md",
-    "simutrade_ws_api.md",
-    "simutrade_ws_api_guide.md",
-    "Unconfirmed 127577.crdownload",
-    "simutrade_ws_models_sample.py",
-    "simulation_engine_protocol.md",
-    "simulation_engine_protocol_2.md",
-    "simutrade_sequence_diagram.png",
-    "simutrade_sequence_proper.png",
-    "Unconfirmed 86476.crdownload",
-    "Unconfirmed 370862.crdownload",
-    "simutrade_ws_models_enterprise.py",
-    "Unconfirmed 903562.crdownload",
-    "Unconfirmed 845538.crdownload",
-    "API/on demand trading data update.md",
-    "backtester_roadmap.md",
-    "API/manual trading data update.md",
-    "SimuTrador/API"
+    "main.md",
+    "28-09-2025.md",
+    "simutrador-server/simulation-engine-implementation-plan.md",
+    "simutrador-server/task-3-websocket-auth-implementation-plan.md",
+    "simutrador-server/task-4-session-management-implementation-plan.md",
+    "simutrador-server/ws_api_v2.md",
+    "simutrador-data-manager/API/nightly update.md",
+    "simutrador-data-manager/API/data analysis.md",
+    "repository-migration-plan.md",
+    "simutrador-data-manager",
+    "simutrador-client",
+    "simutrador-server",
+    "simutrador-data-manager/ohlcv_manager.md"
   ]
 }
