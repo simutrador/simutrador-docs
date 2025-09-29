@@ -5,7 +5,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# (optional but nice) set defaults at workflow level
 permissions:
   contents: read
   pages: write
@@ -14,7 +13,6 @@ permissions:
 jobs:
   deploy:
     uses: simutrador/.github/.github/workflows/reusable-mkdocs-pages.yml@main
-    # REQUIRED: permissions must be passed to the called workflow
     permissions:
       contents: read
       pages: write
@@ -22,6 +20,10 @@ jobs:
     with:
       python_version: "3.12"
       publish_dir: "site"
-      aggregate_docs: ""
+      # Pull exactly ONE repo for now: repo : path_in_repo : dest_subdir
+      aggregate_docs: >
+        simutrador-data-manager:docs:data-manager
     secrets:
+      # If simutrador-data-manager is private and default token can't read it,
+      # create an org secret ORG_READ_TOKEN (classic PAT with repo read) and use it here:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
