@@ -22,7 +22,10 @@ jobs:
       publish_dir: "site"
       # Pull exactly ONE repo for now: repo : path_in_repo : dest_subdir
       aggregate_docs: >
-        simutrador-data-manager:docs:data-manager
+        simutrador-data-manager:README.md:data-manager,
+        simutrador-data-manager:docs:data-manager/docs,
+        simutrador-data-manager:frontend/README.md:data-manager/frontend,
+        simutrador-data-manager:backend/README.md:data-manager/backend
     secrets:
       # If simutrador-data-manager is private and default token can't read it,
       # create an org secret ORG_READ_TOKEN (classic PAT with repo read) and use it here:
