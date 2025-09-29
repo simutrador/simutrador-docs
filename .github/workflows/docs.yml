@@ -23,10 +23,7 @@ jobs:
       # repo:path_in_repo:dest_subdir  (CSV, no spaces after commas)
       aggregate_docs: >-
         simutrador-data-manager:README.md:data-manager,
-        simutrador-data-manager:docs:data-manager/docs,
-        simutrador-data-manager:frontend:data-manager/frontend,
-        simutrador-data-manager:backend:data-manager/backend,
-        simutrador-data-manager:backend/documentation:data-manager/backend/documentation
+        simutrador-data-manager:docs:data-manager/docs
     secrets:
       # For private repos, replace with an org secret PAT with repo:read (e.g., ORG_READ_TOKEN)
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
