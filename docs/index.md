@@ -1,14 +1,10 @@
-# SimuTrador – Complete Trading Simulation Platform
+# SimuTrador
 
-## Overview
+## Complete Trading Simulation Platform
 
 **SimuTrador** is a comprehensive trading simulation platform combining robust historical data management with high-fidelity order execution simulation.
 
-It consists of three integrated systems:
-
-1. **OHLCV Data Manager** – fetch, store, and process historical market data
-2. **SimuTrador Server** – simulate real-time order execution with realistic market conditions
-3. **SimuTrador Client** – Python SDK for server communication
+It consists of three integrated systems, the data manager that internally handles the download and update of candles up to 1 minute, the Simulation Server which simulates real-time order execution and market conditions and the Simulation client which provides an SDK for connecting to the server.
 
 Together, they provide a full solution for **strategy development, backtesting, and validation**.
 
@@ -41,19 +37,19 @@ Server: Validation, execution simulation, portfolio tracking
 
 ---
 
-## 🚀 Use Cases
-
-- **Quant Research** – prototyping, optimization, stress testing
-- **Algorithm Validation** – slippage analysis, regime testing, scale planning
-- **Production Prep** – pre-deployment checks, broker integration, compliance
-
----
-
 ## 💡 Competitive Advantages
 
 - **vs. Backtesting Tools** – no lock-in, no forced frameworks, realistic fills
 - **vs. Pro Platforms** – cost-effective, developer-friendly, transparent pricing
 - **vs. DIY** – ready-to-use, maintained, scalable, realistic execution
+
+---
+
+## 🚀 Use Cases
+
+- **Quant Research** – prototyping, optimization, stress testing
+- **Algorithm Validation** – slippage analysis, regime testing, scale planning
+- **Production Prep** – pre-deployment checks, broker integration, compliance
 
 ---
 
@@ -81,52 +77,12 @@ Server: Validation, execution simulation, portfolio tracking
 
 ---
 
-## 🛠️ Technical Implementation
+## Reference Table
 
-## 🧩 Multi-Repository Structure
-
-```
-simutrador/
-├── simutrador-core/         # Shared models/utilities (MIT)
-├── simutrador-data-manager/ # OHLCV pipeline & APIs (MIT)
-├── simutrador-docs/         # Documentation (MIT)
-├── simutrador-client/       # Python SDK (MIT)
-└── simutrador-server/       # Simulation engine (Private)
-```
-
-- [Core](https://github.com/simutrador/simutrador-core) | [Data Manager](https://github.com/simutrador/simutrador-data-manager) | [Docs](https://github.com/simutrador/simutrador-docs) | [Client](https://github.com/simutrador/simutrador-client) | [Server (Private)](https://github.com/simutrador/simutrador-server)
-
----
-
-## 🏗️ System Architecture
-
-- **Data Layer (OHLCV Manager)** – multi-provider fetch, parquet storage, validation, nightly updates
-- **Simulation Layer** – tick-based execution, slippage/fees, portfolio tracking, interactive controls
-- **Pipeline** – `Data → Validation → Storage → Resampling → API`
-- **Execution Flow** – `Strategy → Orders → Validation → Simulation`
-
----
-
-## 🔧 Getting Started
-
-1. **Data Setup** – configure sources, run nightly update
-2. **Authentication** – exchange API key for JWT
-3. **Simulation Setup** – connect via WebSocket and create sessions
-4. **Strategy Implementation** – run proprietary logic locally, send orders to server
-
----
-
-## 📚 Documentation Structure
-
-- **OHLCV Data Manager** – [Overview](https://github.com/simutrador/simutrador-data-manager/blob/main/docs/ohlcv_manager.md), [Nightly Update API](https://github.com/simutrador/simutrador-data-manager/blob/main/docs/nightly%20update.md), [Analysis API](https://github.com/simutrador/simutrador-data-manager/blob/main/docs/data%20analysis.md)
-- **WebSocket Simulation API** – [API Spec](https://github.com/simutrador/simutrador-core/blob/main/docs/ws_api_v2.md), auth & lifecycle, order types, real-time protocols
-
----
-
-## 🤝 Community & Support
-
-- **Docs, SDKs, Example Strategies, Best Practices**
-- **Support** – GitHub Issues, Discord, Email, Enterprise Support
-- **Contributing** – Open source repos, feature requests, beta testing
-
----
+1. **OHLCV Data Manager** – fetch, store, and process historical market data. Multi-provider fetch, parquet storage, validation, nightly updates
+   - [Overview](data-manager/)
+   - [Data Management Guide](data-manager/docs/ohlcv_manager.md)
+   - [Nightly Update](data-manager/docs/nightly-update.md)
+   - [Data Analysis](data-manager/docs/data-analysis.md)
+1. **SimuTrador Server** – simulate real-time order execution with realistic market conditions. Tick-based execution, slippage/fees, portfolio tracking, interactive controls
+1. **SimuTrador Client** – Python SDK for server communication

@@ -20,10 +20,10 @@ jobs:
     with:
       python_version: "3.12"
       publish_dir: "site"
-      # repo:path_in_repo:dest_subdir  (CSV, no spaces after commas)
       aggregate_docs: >-
         simutrador-data-manager:README.md:data-manager,
         simutrador-data-manager:docs:data-manager/docs
     secrets:
-      # For private repos, replace with an org secret PAT with repo:read (e.g., ORG_READ_TOKEN)
+      # If source repos are private and the default token can’t read them,
+      # replace with an org secret PAT that has repo:read (e.g., ORG_READ_TOKEN)
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
