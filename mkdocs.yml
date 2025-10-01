@@ -6,8 +6,8 @@ nav:
   - Home:
       - Overview: index.md
       - Data Manager:
-          - API:
-              - Overview: data-manager/docs/ohlcv-manager.md
+          - Overview: data-manager/docs/ohlcv-manager.md
+          - APIs:
               - Data Analysis API: data-manager/docs/data-analysis.md
               - Nightly Update API: data-manager/docs/nightly-update.md
 
@@ -27,6 +27,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      toc_depth: "1-2" # show only H2
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight
