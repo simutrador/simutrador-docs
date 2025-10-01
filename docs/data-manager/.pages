@@ -6,4 +6,4 @@ nav:
   - docs/index.md: "SimuTrador Data Manager"
   - docs/data-analysis.md: "Data Analysis API"
   - docs/nightly-update.md: "Nightly Update API"
-  - docs/ohlcv_manager.md: "OHLCV Manager"
+  - docs/ohlcv-manager.md: "OHLCV Manager"
