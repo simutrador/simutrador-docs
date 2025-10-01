@@ -10,6 +10,8 @@ nav:
           - APIs:
               - Data Analysis API: data-manager/docs/data-analysis.md
               - Nightly Update API: data-manager/docs/nightly-update.md
+      - SimuTrador Server: simutrador-server/docs/index.md
+      - SimuTrador Client: simutrador-client/docs/index.md
 
 theme:
   name: material

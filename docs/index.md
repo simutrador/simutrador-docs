@@ -79,10 +79,6 @@ Server: Validation, execution simulation, portfolio tracking
 
 ## Reference Table
 
-1. **OHLCV Data Manager** – fetch, store, and process historical market data. Multi-provider fetch, parquet storage, validation, nightly updates
-   - [Overview](data-manager/index.md)
-   - [Data Management Guide](data-manager/docs/ohlcv-manager.md)
-   - [Nightly Update](data-manager/docs/nightly-update.md)
-   - [Data Analysis](data-manager/docs/data-analysis.md)
-1. **SimuTrador Server** – simulate real-time order execution with realistic market conditions. Tick-based execution, slippage/fees, portfolio tracking, interactive controls
-1. **SimuTrador Client** – Python SDK for server communication
+- [Data Management Guide](data-manager/docs/ohlcv-manager.md)
+- [Simutrador Server](simutrador-server/docs/index.md)
+- [Simutrador Client](simutrador-client/docs/index.md)
