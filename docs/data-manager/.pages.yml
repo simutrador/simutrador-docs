@@ -1,5 +1,15 @@
-title: Data Manager
+title: Data Manager # how the section appears in the sidebar
 collapse_single_pages: true
+
+# Put the pages from the subfolder directly under "Data Manager"
 nav:
-  - index.md
-  - docs/
+  - docs/index.md: "SimuTrador Data Manager"
+  - docs/data-analysis.md: "Data Analysis API"
+  - docs/nightly-update.md: "Nightly Update API"
+  - docs/ohlcv_manager.md: "OHLCV Manager"
+
+# Hide things we don't want as separate items
+arrange:
+  hidden:
+    - index.md # hide the root "Index" page at data-manager/
+    - docs/ # hide the "Docs" folder label itself
