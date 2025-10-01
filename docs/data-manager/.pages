@@ -1,9 +1,9 @@
 title: Data Manager
 collapse_single_pages: true
 
-# Flatten the pages from the subfolder directly under "Data Manager"
+# NOTE the leading "./" which forces "relative-to-this-folder"
 nav:
-  - SimuTrador Data Manager: docs/index.md
-  - Data Analysis API: docs/data-analysis.md
-  - Nightly Update API: docs/nightly-update.md
-  - OHLCV Manager: docs/ohlcv-manager.md
+  - SimuTrador Data Manager: ./index.md
+  - Data Analysis API: ./docs/data-analysis.md
+  - Nightly Update API: ./docs/nightly-update.md
+  - OHLCV Manager: ./docs/ohlcv-manager.md
