@@ -25,7 +25,4 @@ jobs:
         simutrador-data-manager:docs:data-manager/docs,
         simutrador-server:docs:simutrador-server/docs,
         simutrador-client:docs:simutrador-client/docs
-    secrets:
-      # If source repos are private and the default token can’t read them,
-      # replace with an org secret PAT that has repo:read (e.g., ORG_READ_TOKEN)
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    secrets: inherit
