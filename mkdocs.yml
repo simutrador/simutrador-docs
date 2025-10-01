@@ -2,6 +2,14 @@ site_name: SimuTrador Docs
 site_url: https://simutrador.github.io/simutrador-docs
 repo_url: https://github.com/simutrador/simutrador-docs
 
+nav:
+  - Home: index.md
+  - Data Manager:
+      - SimuTrador Data Manager: data-manager/index
+      - Data Analysis API: data-manager/docs/data-analysis
+      - Nightly Update API: data-manager/docs/nightly-update
+      - OHLCV Manager: data-manager/docs/ohlcv-manager
+
 theme:
   name: material
   features:

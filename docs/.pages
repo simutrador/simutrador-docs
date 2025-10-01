@@ -1,4 +1,0 @@
-collapse_single_pages: true
-nav:
-  - index.md
-  - "Data Manager": data-manager
