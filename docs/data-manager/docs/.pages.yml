@@ -1,6 +1,0 @@
-collapse_single_pages: true
-nav:
-  - index.md
-  - ohlcv_manager.md
-  - nightly-update.md
-  - data-analysis.md
