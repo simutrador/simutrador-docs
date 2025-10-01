@@ -5,8 +5,8 @@ repo_url: https://github.com/simutrador/simutrador-docs
 nav:
   - Home:
       - Overview: index.md
-      - API:
-          - Data Manager:
+      - Data Manager:
+          - API:
               - Overview: data-manager/docs/ohlcv-manager.md
               - Data Analysis API: data-manager/docs/data-analysis.md
               - Nightly Update API: data-manager/docs/nightly-update.md
