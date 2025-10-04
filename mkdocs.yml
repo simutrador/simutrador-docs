@@ -6,10 +6,10 @@ nav:
   - Home:
       - Overview: index.md
       - Data Manager:
-      - Overview: data-manager/docs/ohlcv-manager.md
-      - APIs:
-          - Data Analysis API: data-manager/docs/data-analysis.md
-          - Nightly Update API: data-manager/docs/nightly-update.md
+          - Overview: data-manager/docs/ohlcv-manager.md
+          - APIs:
+              - Data Analysis API: data-manager/docs/data-analysis.md
+              - Nightly Update API: data-manager/docs/nightly-update.md
       - SimuTrador Server:
           - Overview: simutrador-server/docs/index.md
           - WS API v2: simutrador-server/docs/ws_api_v2.md
